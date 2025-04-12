@@ -4,11 +4,12 @@ using System;
 public partial class Player : CharacterBody2D
 {
 
-    [Export] public float speed = 100f;
+    [Export] public float speed = 200f;
     private Vector2 velocity;
     private AnimationNodeStateMachinePlayback stm;
     [Export] public AnimationTree aTree;
     [Export] public Sprite2D sprite;
+    [Export] public float jumpForce = 50f;
 
     // Se ejecuta cuando el nodo se carga en la escena
     public override void _Ready()
@@ -21,14 +22,23 @@ public partial class Player : CharacterBody2D
     {
         base._PhysicsProcess(delta);
 
-        //pilla el nombre de los controles de godot
-        Vector2 direccion = new Vector2(Input.GetActionStrength("derecha") - Input.GetActionStrength("izquierda"), 0);
+        //Obtiene el nombre de los controles de godot
+        Vector2 direccion = new Vector2(Input.GetActionStrength("right") - Input.GetActionStrength("left"), 0);
 
-        velocity.X = direccion.X * speed;
-        Velocity = velocity;
-        MoveAndSlide();
+        if (IsOnFloor() && Input.IsActionJustPressed("jump"))
+        {
+            velocity.Y = -jumpForce * 8F;
+            stm.Travel("jump");
 
-        if (Velocity.X != 0)
+        }
+        else if (!IsOnFloor())
+        {
+            velocity.Y += GetGravity().Y * (float)delta;
+        }
+        else if(Input.IsActionPressed("attack")){
+            stm.Travel("Attack");
+        }
+        else if (Velocity.X != 0)
         {
             stm.Travel("Run");
             if (Velocity.X < 0)
@@ -46,6 +56,8 @@ public partial class Player : CharacterBody2D
             stm.Travel("Idle");
         }
 
+        velocity.X = direccion.X * speed;
+        Velocity = velocity;
+        MoveAndSlide();
     }
-
 }

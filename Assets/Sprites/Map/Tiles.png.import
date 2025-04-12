@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ucn7mugtycnn"
-path="res://.godot/imported/Idle-Sheet.png-f5c2b50694bf504d43c970bc7ef0acd7.ctex"
+uid="uid://dusckemd22onm"
+path="res://.godot/imported/Tiles.png-b6caca0ac45b17f1c31f85a8932150da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Idle-Sheet.png"
-dest_files=["res://.godot/imported/Idle-Sheet.png-f5c2b50694bf504d43c970bc7ef0acd7.ctex"]
+source_file="res://Assets/Sprites/Map/Tiles.png"
+dest_files=["res://.godot/imported/Tiles.png-b6caca0ac45b17f1c31f85a8932150da.ctex"]
 
 [params]
 
