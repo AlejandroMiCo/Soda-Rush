@@ -1,5 +1,17 @@
 # SODA RUSH
 
+## Aspectos a tener en cuenta
+
+````
+Se opto por usar Visual Studio code debido a las facilidades que ofrece para
+programar código con c# asi como las extensiones compatibles con desarollo en
+godot.
+
+Extensiones usadas:
+  * C# Tools for Godot versión 0.2.1
+            
+````
+
 ## Diario de actualizaciones
 ```
 24/03/2025: Creación del Poryecto, configuración de godot y visual estudio code
@@ -8,7 +20,8 @@
 01/04/2025: Se ha progresado con el diseño del personaje principal junto con el artista,
             creacion de un personaje con assets de prueba
             y primera version de la maquina de estados
-
+12/04/2025: Actualizacion con los movimientos básicos del personaje asi como físicas
+            simples y un mapa linial para probarlas. 
 ```
 
 ## Errores
