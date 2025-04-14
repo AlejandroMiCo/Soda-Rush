@@ -25,3 +25,7 @@ Extensiones usadas:
 ```
 
 ## Errores
+- [ ] Se ha encontrado un error en relacionado con los saltos, de vez en cuando el impulso del salto del personaje se dispara  
+
+
+
