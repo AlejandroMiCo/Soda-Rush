@@ -11,6 +11,12 @@ public partial class Player : CharacterBody2D
     [Export] public Sprite2D sprite;
     [Export] public float jumpForce = 50f;
 
+    private float SPEED = 200f;
+    private bool canDoubleJump = true;
+    private bool isFloating = false;
+
+
+
     // Se ejecuta cuando el nodo se carga en la escena
     public override void _Ready()
     {
@@ -20,7 +26,11 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
+
+        System.Console.WriteLine("Velocity: " + Velocity.Y);
+
         base._PhysicsProcess(delta);
+        speed = SPEED;
 
         //Obtiene el nombre de los controles de godot
         Vector2 direccion = new Vector2(Input.GetActionStrength("right") - Input.GetActionStrength("left"), 0);
@@ -28,17 +38,46 @@ public partial class Player : CharacterBody2D
         if (IsOnFloor() && Input.IsActionJustPressed("jump"))
         {
             velocity.Y = -jumpForce * 8F;
-            stm.Travel("jump");
-
         }
-        else if (!IsOnFloor())
+
+        if (!IsOnFloor())
+        {
+            stm.Travel("jump");
+        }
+
+        if (!IsOnFloor() && Input.IsActionPressed("jump") && canDoubleJump && velocity.Y > 0)
+        {
+            System.Console.WriteLine("Double Jump");
+            doubleJump();
+        }
+
+        if (!IsOnFloor() && Input.IsActionJustReleased("jump"))
+        {
+            isFloating = false;
+        }
+
+        if (!IsOnFloor() && !isFloating)
         {
             velocity.Y += GetGravity().Y * (float)delta;
         }
-        else if(Input.IsActionPressed("attack")){
+
+        if (isFloating)
+        {
+            velocity.Y -= 2;
+            speed = SPEED / 3;
+        }
+
+        if (IsOnFloor())
+        {
+            canDoubleJump = true;
+        }
+
+        if (IsOnFloor() && Input.IsActionPressed("attack"))
+        {
             stm.Travel("Attack");
         }
-        else if (Velocity.X != 0)
+
+        if (IsOnFloor() && Velocity.X != 0)
         {
             stm.Travel("Run");
             if (Velocity.X < 0)
@@ -51,7 +90,8 @@ public partial class Player : CharacterBody2D
                 sprite.FlipH = false;
             }
         }
-        else
+        
+        if (IsOnFloor() && Velocity.X == 0)
         {
             stm.Travel("Idle");
         }
@@ -59,5 +99,11 @@ public partial class Player : CharacterBody2D
         velocity.X = direccion.X * speed;
         Velocity = velocity;
         MoveAndSlide();
+    }
+
+    public void doubleJump()
+    {
+        canDoubleJump = false;
+        isFloating = true;
     }
 }
