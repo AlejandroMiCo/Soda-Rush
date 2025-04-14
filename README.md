@@ -25,7 +25,18 @@ Extensiones usadas:
 ```
 
 ## Errores
-- [ ] Se ha encontrado un error en relacionado con los saltos, de vez en cuando el impulso del salto del personaje se dispara  
+- [ ] Se ha encontrado un error en relacionado con los saltos, de vez en cuando el impulso del salto del personaje se dispara. 
+
+
+## Progreso
+![video] https://github.com/user-attachments/assets/a9015c5c-576a-4ee2-b0c6-f4d58e1578ac
 
 
 
+## Progreso de la artista
+
+
+## Tutoriales seguidos
+
+
+## Props de ia usados
