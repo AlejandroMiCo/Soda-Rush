@@ -29,7 +29,8 @@ Extensiones usadas:
 
 
 ## Progreso
-![video] https://github.com/user-attachments/assets/a9015c5c-576a-4ee2-b0c6-f4d58e1578ac
+![SodaRush - Movimientos básicos](https://github.com/user-attachments/assets/4d58c2d1-249c-4e78-9e64-d148f5527c7b)
+
 
 
 
