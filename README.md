@@ -21,10 +21,12 @@ Extensiones usadas:
 12/04/2025: Actualizacion con los movimientos básicos del personaje asi como físicas
             simples y un mapa linial para probarlas.
 14/04/2025: Se añadio el movimiento del segundo salto sostenido.
+20/04/2025: Se ha configurado la primera escena del juego, asi como su camara.
 ```
 
 ## 📝 Errores
-- [ ] Se ha encontrado un error en relacionado con los saltos, de vez en cuando el impulso del salto del personaje se dispara. 
+- [ ] Se ha encontrado un error en relacionado con los saltos, de vez en cuando el impulso del salto del personaje se dispara.
+- [x] Se encontro un problema con las texturas anteriores por el cual no se podía configurar de forma adeucada el sistema de auto tiles. ***Corrección** : Se ha optado por usar unos tails que si fueran compatibles haciendo mas agil el desarrollo de los mapas.* 
 
 
 ## 📈 Progreso
@@ -40,9 +42,14 @@ Extensiones usadas:
 
 ![artista4](https://github.com/user-attachments/assets/02fa9488-50cc-4126-af25-de6b734bfaa3)
 ## 💻 Tutoriales seguidos
-- Video para el salto sostenido: https://www.youtube.com/embed/aQ6l7HNELLg?si=SUBtNdPrhulkqzVk
+- Vídeo para el salto sostenido: https://www.youtube.com/embed/aQ6l7HNELLg?si=SUBtNdPrhulkqzVk
     [![Alt text](https://img.youtube.com/vi/aQ6l7HNELLg/0.jpg)](https://www.youtube.com/watch?v=aQ6l7HNELLg)
 
+- Vídeo para el uso de tiles y auto tiles: https://www.youtube.com/watch?v=CLcFC6ku240
+    [![Alt text](https://img.youtube.com/vi/CLcFC6ku240/0.jpg)](https://www.youtube.com/watch?v=CLcFC6ku240)
+
+- Vídeo para ajustar los limites de la camara: https://www.youtube.com/watch?v=kQbkue9sCAg
+  [![Alt text](https://img.youtube.com/vi/kQbkue9sCAg/0.jpg)](https://www.youtube.com/watch?v=kQbkue9sCAg)
 
 ## 🤖 Props de ia usados
 

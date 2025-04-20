@@ -308,7 +308,7 @@ graph_offset = Vector2(29, -108.6)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpjfl"]
 radius = 11.0
-height = 50.0
+height = 44.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("aTree", "sprite")]
 collision_mask = 31

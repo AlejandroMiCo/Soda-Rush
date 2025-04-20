@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://c377x2p8ubyc"]
 
-[ext_resource type="Script" uid="uid://cq4h4qrp1sevj" path="res://Node2d.cs" id="1_c2yoj"]
-[ext_resource type="PackedScene" uid="uid://n1mutygal3tk" path="res://Scenes/player.tscn" id="2_e1yuc"]
-[ext_resource type="Texture2D" uid="uid://dusckemd22onm" path="res://Assets/Sprites/Map/Tiles.png" id="3_oc24w"]
+[ext_resource type="Script" uid="uid://cq4h4qrp1sevj" path="res://Node2d.cs" id="1_ojg1u"]
+[ext_resource type="PackedScene" uid="uid://n1mutygal3tk" path="res://Scenes/Juegador/player.tscn" id="2_vkcc4"]
+[ext_resource type="Texture2D" uid="uid://dusckemd22onm" path="res://Assets/Sprites/Map/Tiles.png" id="3_ntc4e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3u4aq"]
-texture = ExtResource("3_oc24w")
+texture = ExtResource("3_ntc4e")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -481,10 +481,19 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3u4aq")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_c2yoj")
+script = ExtResource("1_ojg1u")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_e1yuc")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_vkcc4")]
 position = Vector2(46, 384)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_left = 0
+limit_top = 0
+limit_right = 910
+limit_bottom = 400
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_circt")
