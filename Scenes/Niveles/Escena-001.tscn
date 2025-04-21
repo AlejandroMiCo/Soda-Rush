@@ -294,6 +294,7 @@ tile_set = SubResource("TileSet_oxc75")
 [node name="Puerta" parent="Puertas" instance=ExtResource("3_kf5xg")]
 position = Vector2(1617, 296)
 scale = Vector2(2, 10)
+ScenePath = "uid://dm5hfw00ejgp"
 
 [node name="Spawn" parent="Puertas/Puerta" index="1"]
 position = Vector2(-20, 9)

@@ -17,6 +17,7 @@ position = Vector2(23, 297)
 
 [node name="Puerta-izq" parent="Puertas" instance=ExtResource("2_lvvtm")]
 position = Vector2(-5, 275)
+ScenePath = "uid://dehos0wf22wox"
 
 [node name="CollisionShape2D" parent="Puertas/Puerta-izq" index="0"]
 scale = Vector2(1, 5)
