@@ -14,7 +14,10 @@ config/name="SodaRush"
 run/main_scene="uid://c377x2p8ubyc"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 run/max_fps=60
-config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Assets/Scripts/Globals/Global.cs"
 
 [display]
 
@@ -35,6 +38,10 @@ folder_colors={
 "res://Assets/": "orange",
 "res://Scenes/": "green"
 }
+
+[global_group]
+
+Player=""
 
 [input]
 

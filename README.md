@@ -13,7 +13,7 @@ Extensiones usadas:
 ## 📕 Diario de actualizaciones
 ```
 24/03/2025: Creación del Poryecto, configuración de godot y visual estudio code
-24-31/03/2025: Negociaciones con artista para los assets del personaje principañ
+24-31/03/2025: Negociaciones con artista para los assets del personaje **principal**
 31/03/2025: Avance con tutoriales del motor godot 
 01/04/2025: Se ha progresado con el diseño del personaje principal junto con el artista,
             creacion de un personaje con assets de prueba
@@ -22,6 +22,7 @@ Extensiones usadas:
             simples y un mapa linial para probarlas.
 14/04/2025: Se añadio el movimiento del segundo salto sostenido.
 20/04/2025: Se ha configurado la primera escena del juego, asi como su camara.
+20-21/04/2025: Se ha intentado implementar el cambio entre escenas, pero no se ha logrado, de momento.
 ```
 
 ## 📝 Errores

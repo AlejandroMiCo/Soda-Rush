@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://byx7epuj0mq37"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Puerta.cs" id="1_obmsg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bemxd"]
+
+[node name="Puerta" type="Area2D"]
+script = ExtResource("1_obmsg")
+DestinoEscena = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bemxd")
+
+[node name="Spawn" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

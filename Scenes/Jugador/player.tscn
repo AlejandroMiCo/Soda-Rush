@@ -1,10 +1,10 @@
 [gd_scene load_steps=25 format=3 uid="uid://n1mutygal3tk"]
 
-[ext_resource type="Script" uid="uid://b6d58asx2pqxe" path="res://Assets/Scripts/Player.cs" id="1_vgqql"]
-[ext_resource type="Texture2D" uid="uid://bun4fksk5t3si" path="res://Assets/Sprites/Characters/Attack-01-Sheet.png" id="2_fkybt"]
-[ext_resource type="Texture2D" uid="uid://ucn7mugtycnn" path="res://Assets/Sprites/Characters/Idle-Sheet.png" id="3_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://csiosmr5idhg1" path="res://Assets/Sprites/Characters/Run-Sheet.png" id="4_3smsa"]
-[ext_resource type="Texture2D" uid="uid://bcqrwb0sif1v0" path="res://Assets/Sprites/Characters/Jump-All-Sheet.png" id="5_fkybt"]
+[ext_resource type="Script" uid="uid://b6d58asx2pqxe" path="res://Assets/Scripts/Player.cs" id="1_6pwta"]
+[ext_resource type="Texture2D" uid="uid://bun4fksk5t3si" path="res://Assets/Sprites/Characters/Attack-01-Sheet.png" id="2_bc0gx"]
+[ext_resource type="Texture2D" uid="uid://ucn7mugtycnn" path="res://Assets/Sprites/Characters/Idle-Sheet.png" id="3_olt7i"]
+[ext_resource type="Texture2D" uid="uid://csiosmr5idhg1" path="res://Assets/Sprites/Characters/Run-Sheet.png" id="4_0ostq"]
+[ext_resource type="Texture2D" uid="uid://bcqrwb0sif1v0" path="res://Assets/Sprites/Characters/Jump-All-Sheet.png" id="5_fkc27"]
 
 [sub_resource type="Animation" id="Animation_tx1dd"]
 resource_name = "Attack"
@@ -43,7 +43,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_fkybt")]
+"values": [ExtResource("2_bc0gx")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -96,7 +96,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_x3wgy")]
+"values": [ExtResource("3_olt7i")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -135,7 +135,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_fkybt")]
+"values": [ExtResource("2_bc0gx")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -212,7 +212,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_3smsa")]
+"values": [ExtResource("4_0ostq")]
 }
 
 [sub_resource type="Animation" id="Animation_vgqql"]
@@ -228,7 +228,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_fkybt")]
+"values": [ExtResource("5_fkc27")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -310,16 +310,16 @@ graph_offset = Vector2(29, -108.6)
 radius = 11.0
 height = 44.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("aTree", "sprite")]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("aTree", "sprite") groups=["Player"]]
 collision_mask = 31
 platform_floor_layers = 4278190084
 platform_wall_layers = 4
-script = ExtResource("1_vgqql")
+script = ExtResource("1_6pwta")
 aTree = NodePath("Sprite2D/AnimationTree")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fkybt")
+texture = ExtResource("2_bc0gx")
 hframes = 8
 frame = 1
 
