@@ -27,12 +27,14 @@ Extensiones usadas:
 
 ## 📝 Errores
 - [ ] Se ha encontrado un error en relacionado con los saltos, de vez en cuando el impulso del salto del personaje se dispara.
-- [x] Se encontro un problema con las texturas anteriores por el cual no se podía configurar de forma adeucada el sistema de auto tiles. ***Corrección** : Se ha optado por usar unos tails que si fueran compatibles haciendo mas agil el desarrollo de los mapas.* 
+- [x] Se encontro un problema con las texturas anteriores por el cual no se podía configurar de forma adeucada el sistema de auto tiles. ***Corrección** : Se ha optado por usar unos tails que si fueran compatibles haciendo mas agil el desarrollo de los mapas.*
+- [ ] Se han encontrado ciertos problemas con la implementación del cambio de escenas y se han encontrado problemas como funcionalidades que el motor no soporta para C# o funciones no compotibles. 
 
 
 ## 📈 Progreso
 ![SodaRush - Movimientos básicos](https://github.com/user-attachments/assets/4d58c2d1-249c-4e78-9e64-d148f5527c7b)
 
+![SodaRush - Cambio de escenas](https://github.com/user-attachments/assets/1402dcb3-7712-48e9-9d16-efe3016187d0)
 
 ## 🎨 Progreso de la artista
   <p align="center">
