@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="SodaRush"
-run/main_scene="uid://c377x2p8ubyc"
+run/main_scene="uid://iofgb37le8jd"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 run/max_fps=60
-
-[autoload]
-
-Global="*res://Assets/Scripts/Globals/Global.cs"
 
 [display]
 

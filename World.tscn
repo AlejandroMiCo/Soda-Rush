@@ -1,13 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://iofgb37le8jd"]
 
-[ext_resource type="PackedScene" uid="uid://cfneu3sco6inx" path="res://Scenes/Niveles/Escena-001.tscn" id="1_c6gwx"]
+[ext_resource type="PackedScene" uid="uid://dehos0wf22wox" path="res://Scenes/Niveles/Escena-001.tscn" id="1_c6gwx"]
 [ext_resource type="PackedScene" uid="uid://n1mutygal3tk" path="res://Scenes/Jugador/player.tscn" id="2_2dftf"]
 
 [node name="World" type="Node2D"]
 
-[node name="Escena-001-zonaInicial2" parent="." instance=ExtResource("1_c6gwx")]
+[node name="Escena-001-zonaInicial" parent="." instance=ExtResource("1_c6gwx")]
 
 [node name="Player" parent="." instance=ExtResource("2_2dftf")]
 position = Vector2(-75, 408)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -395
+limit_top = -140
+limit_right = 1635
+limit_bottom = 575
+editor_draw_limits = true
