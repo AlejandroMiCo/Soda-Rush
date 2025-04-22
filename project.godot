@@ -15,6 +15,10 @@ run/main_scene="uid://iofgb37le8jd"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 run/max_fps=60
 
+[autoload]
+
+MetSys="*res://addons/MetroidvaniaSystem/Nodes/Singleton.tscn"
+
 [display]
 
 window/size/viewport_width=800
@@ -28,11 +32,16 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Prueba"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/MetroidvaniaSystem/EditorExtension/plugin.cfg", "res://addons/MetroidvaniaSystem/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
 "res://Assets/": "orange",
-"res://Scenes/": "green"
+"res://Scenes/": "green",
+"res://addons/": "purple"
 }
 
 [global_group]

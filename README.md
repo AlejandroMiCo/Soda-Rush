@@ -8,7 +8,10 @@ godot.
 
 Extensiones usadas:
   - C# Tools for Godot versión 0.2.1
-  - C# Dev Kit versión 1.18.23         
+  - C# Dev Kit versión 1.18.23
+
+Para un mejor control y gestion de los mapas y las salas se usara la herramienta:
+  - Metroidvania System en su versión actual a día 22/04/2025 (No parace tener numero de versión) https://github.com/KoBeWi/Metroidvania-System 
 
 ## 📕 Diario de actualizaciones
 ```
@@ -23,6 +26,7 @@ Extensiones usadas:
 14/04/2025: Se añadio el movimiento del segundo salto sostenido.
 20/04/2025: Se ha configurado la primera escena del juego, asi como su camara.
 20-21/04/2025: Se ha intentado implementar el cambio entre escenas, pero no se ha logrado, de momento.
+22/04/2025: Se ha añadido el pluggin para la gestion de mapas y salas.
 ```
 
 ## 📝 Errores
