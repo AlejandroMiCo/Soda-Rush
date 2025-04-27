@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://dehos0wf22wox"]
+[gd_scene load_steps=11 format=4 uid="uid://dehos0wf22wox"]
 
 [ext_resource type="Texture2D" uid="uid://ocjsyodmqbjx" path="res://Assets/Sprites/Map/Background.png" id="1_oxc75"]
 [ext_resource type="Texture2D" uid="uid://du2jkw5pkrc7t" path="res://Assets/Sprites/Map/001-tilemap.png" id="2_j0djn"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="3_kf5xg"]
 [ext_resource type="Script" uid="uid://b42yry1kvwx41" path="res://Scenes/Niveles/PathFollow2d.cs" id="4_3j2oy"]
 [ext_resource type="PackedScene" uid="uid://dcw03kfitq4n3" path="res://Scenes/Enemigos/zombie.tscn" id="4_j0djn"]
+[ext_resource type="PackedScene" uid="uid://db6g4ghighsmd" path="res://Scenes/Enemigos/Skeleton.tscn" id="4_qt8ot"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sd2h"]
 texture = ExtResource("2_j0djn")
@@ -277,6 +278,12 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.671496, 0.0243492, 0.485278, 1)
 sources/1 = SubResource("TileSetAtlasSource_0sd2h")
 
+[sub_resource type="Curve2D" id="Curve2D_5ee7t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 37.8379, 18.3782, 0, 0, 0, 0, -978.378, 18.3782)
+}
+point_count = 2
+
 [sub_resource type="Curve2D" id="Curve2D_j0djn"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 59.4595, 64.865, 0, 0, 0, 0, -2102.7, 59.4595)
@@ -305,6 +312,23 @@ scale = Vector2(2, 10)
 
 [node name="Spawn" parent="Puertas/Puerta" index="1"]
 position = Vector2(-20, 9)
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(543, 402.167)
+scale = Vector2(0.185, 0.154166)
+curve = SubResource("Curve2D_5ee7t")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(30.8811, 18.3782)
+rotation = -3.10543
+progress = 7.00366
+rotates = false
+loop = false
+script = ExtResource("4_3j2oy")
+speed = 0.3
+
+[node name="Skeleton" parent="Path2D2/PathFollow2D" groups=["Enemies"] instance=ExtResource("4_qt8ot")]
+rotation = -3.14159
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(971, 389)

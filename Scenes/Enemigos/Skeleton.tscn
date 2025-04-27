@@ -1,0 +1,141 @@
+[gd_scene load_steps=18 format=3 uid="uid://db6g4ghighsmd"]
+
+[ext_resource type="Script" uid="uid://dablnrydoxlhd" path="res://Assets/Scripts/Enemies/Skeleton.cs" id="1_bhes4"]
+[ext_resource type="Texture2D" uid="uid://y0v2d80ljons" path="res://Assets/Sprites/Enemies/Skeleton/go_1.png" id="1_nnksh"]
+[ext_resource type="Texture2D" uid="uid://desr1ceqdph1v" path="res://Assets/Sprites/Enemies/Skeleton/go_2.png" id="2_bhes4"]
+[ext_resource type="Texture2D" uid="uid://pcg1lrf1l25a" path="res://Assets/Sprites/Enemies/Skeleton/go_3.png" id="3_alddl"]
+[ext_resource type="Texture2D" uid="uid://bg2po8ww1aaid" path="res://Assets/Sprites/Enemies/Skeleton/go_4.png" id="4_efnug"]
+[ext_resource type="Texture2D" uid="uid://bpngfxb45lmgl" path="res://Assets/Sprites/Enemies/Skeleton/go_5.png" id="5_uvqkq"]
+[ext_resource type="Texture2D" uid="uid://cnnjhhngj0yua" path="res://Assets/Sprites/Enemies/Skeleton/go_6.png" id="6_qy2ne"]
+[ext_resource type="Texture2D" uid="uid://bpk7lbf6ina7x" path="res://Assets/Sprites/Enemies/Skeleton/go_7.png" id="7_jufqh"]
+[ext_resource type="Texture2D" uid="uid://bl78ii0ilhye1" path="res://Assets/Sprites/Enemies/Skeleton/go_8.png" id="8_l54y0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6j3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nnksh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bhes4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_alddl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_efnug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uvqkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qy2ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jufqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l54y0")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nnksh"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bhes4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_alddl"]
+states/Walk/node = SubResource("AnimationNodeAnimation_nnksh")
+states/Walk/position = Vector2(311, 100)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_bhes4")]
+
+[sub_resource type="Animation" id="Animation_f843f"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_efnug"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nh7ms"]
+_data = {
+&"RESET": SubResource("Animation_efnug"),
+&"Walk": SubResource("Animation_f843f")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hsnmi"]
+radius = 92.96
+height = 353.1
+
+[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_bhes4")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h6j3x")
+animation = &"Walk"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_alddl")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nh7ms")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hsnmi")
