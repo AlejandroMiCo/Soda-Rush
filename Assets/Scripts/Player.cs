@@ -35,6 +35,13 @@ public partial class Player : CharacterBody2D
         //Obtiene el nombre de los controles de godot
         Vector2 direccion = new Vector2(Input.GetActionStrength("right") - Input.GetActionStrength("left"), 0);
 
+
+        if (Input.IsActionJustPressed("attack"))
+        {
+            stm.Travel("Attack");
+            return;
+        }
+
         if (IsOnFloor() && Input.IsActionJustPressed("jump"))
         {
             velocity.Y = -jumpForce * 8F;
@@ -47,7 +54,6 @@ public partial class Player : CharacterBody2D
 
         if (!IsOnFloor() && Input.IsActionPressed("jump") && canDoubleJump && velocity.Y > 0)
         {
-            System.Console.WriteLine("Double Jump");
             doubleJump();
         }
 
@@ -70,11 +76,6 @@ public partial class Player : CharacterBody2D
         if (IsOnFloor())
         {
             canDoubleJump = true;
-        }
-
-        if (IsOnFloor() && Input.IsActionPressed("attack"))
-        {
-            stm.Travel("Attack");
         }
 
         if (IsOnFloor() && Velocity.X != 0)
