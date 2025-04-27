@@ -304,7 +304,7 @@ states/Start/position = Vector2(246, 109)
 states/jump/node = SubResource("AnimationNodeAnimation_fkybt")
 states/jump/position = Vector2(495, 109)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fd4e3"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_qqcod"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_igrcy"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_fs7ks"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_l6n3p"), "Idle", "jump", SubResource("AnimationNodeStateMachineTransition_x3wgy"), "jump", "Idle", SubResource("AnimationNodeStateMachineTransition_3smsa")]
-graph_offset = Vector2(29, -108.6)
+graph_offset = Vector2(15.249, -55.0386)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpjfl"]
 radius = 11.0

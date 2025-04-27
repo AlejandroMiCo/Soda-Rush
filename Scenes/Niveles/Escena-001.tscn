@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://dehos0wf22wox"]
+[gd_scene load_steps=7 format=4 uid="uid://dehos0wf22wox"]
 
 [ext_resource type="Texture2D" uid="uid://ocjsyodmqbjx" path="res://Assets/Sprites/Map/Background.png" id="1_oxc75"]
 [ext_resource type="Texture2D" uid="uid://du2jkw5pkrc7t" path="res://Assets/Sprites/Map/001-tilemap.png" id="2_j0djn"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="3_kf5xg"]
+[ext_resource type="PackedScene" uid="uid://dcw03kfitq4n3" path="res://Scenes/Enemigos/zombie.tscn" id="4_j0djn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sd2h"]
 texture = ExtResource("2_j0djn")
@@ -297,5 +298,9 @@ scale = Vector2(2, 10)
 
 [node name="Spawn" parent="Puertas/Puerta" index="1"]
 position = Vector2(-20, 9)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_j0djn")]
+position = Vector2(215, 64)
+scale = Vector2(0.185, 0.185)
 
 [editable path="Puertas/Puerta"]

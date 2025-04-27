@@ -1,0 +1,152 @@
+[gd_scene load_steps=20 format=3 uid="uid://dcw03kfitq4n3"]
+
+[ext_resource type="Texture2D" uid="uid://bo41vrgio2v54" path="res://Assets/Sprites/Enemies/Zombie/go_1.png" id="1_8j163"]
+[ext_resource type="Script" uid="uid://csu3g3ql4jlyl" path="res://Assets/Scripts/Enemies/Zombie.cs" id="1_one0o"]
+[ext_resource type="Texture2D" uid="uid://bqrtmauignodu" path="res://Assets/Sprites/Enemies/Zombie/go_2.png" id="2_one0o"]
+[ext_resource type="Texture2D" uid="uid://ddnvrx8ig0g0j" path="res://Assets/Sprites/Enemies/Zombie/go_3.png" id="3_3x7rb"]
+[ext_resource type="Texture2D" uid="uid://lojdvk6g7o8m" path="res://Assets/Sprites/Enemies/Zombie/go_4.png" id="4_ly53f"]
+[ext_resource type="Texture2D" uid="uid://uyo5jtgdx45a" path="res://Assets/Sprites/Enemies/Zombie/go_5.png" id="5_4yg0s"]
+[ext_resource type="Texture2D" uid="uid://tr3nqnm77q3v" path="res://Assets/Sprites/Enemies/Zombie/go_6.png" id="6_cpyjt"]
+[ext_resource type="Texture2D" uid="uid://c4n4cf2ri6byd" path="res://Assets/Sprites/Enemies/Zombie/go_7.png" id="7_0npcy"]
+[ext_resource type="Texture2D" uid="uid://brhvp6vekc2di" path="res://Assets/Sprites/Enemies/Zombie/go_8.png" id="8_3umab"]
+[ext_resource type="Texture2D" uid="uid://chelkr407wtn5" path="res://Assets/Sprites/Enemies/Zombie/go_9.png" id="9_use7j"]
+[ext_resource type="Texture2D" uid="uid://bka1yra0nspv3" path="res://Assets/Sprites/Enemies/Zombie/go_10.png" id="10_5ki2c"]
+
+[sub_resource type="Animation" id="Animation_one0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8j163"]
+resource_name = "Walk"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0lips"]
+_data = {
+&"RESET": SubResource("Animation_one0o"),
+&"Walk": SubResource("Animation_8j163")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3x7rb"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ly53f"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bf27u"]
+states/Start/position = Vector2(198, 98)
+states/Walk/node = SubResource("AnimationNodeAnimation_3x7rb")
+states/Walk/position = Vector2(306, 98)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_ly53f")]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_katas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8j163")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_one0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3x7rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ly53f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4yg0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cpyjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0npcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3umab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_use7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5ki2c")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8j163"]
+radius = 76.34
+height = 291.71
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_one0o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0lips")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_bf27u")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_katas")
+animation = &"Walk"
+speed_scale = 0.96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 29
+shape = SubResource("CapsuleShape2D_8j163")
