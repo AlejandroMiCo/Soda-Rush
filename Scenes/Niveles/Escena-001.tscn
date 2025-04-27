@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://dehos0wf22wox"]
+[gd_scene load_steps=9 format=4 uid="uid://dehos0wf22wox"]
 
 [ext_resource type="Texture2D" uid="uid://ocjsyodmqbjx" path="res://Assets/Sprites/Map/Background.png" id="1_oxc75"]
 [ext_resource type="Texture2D" uid="uid://du2jkw5pkrc7t" path="res://Assets/Sprites/Map/001-tilemap.png" id="2_j0djn"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="3_kf5xg"]
+[ext_resource type="Script" uid="uid://b42yry1kvwx41" path="res://Scenes/Niveles/PathFollow2d.cs" id="4_3j2oy"]
 [ext_resource type="PackedScene" uid="uid://dcw03kfitq4n3" path="res://Scenes/Enemigos/zombie.tscn" id="4_j0djn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sd2h"]
@@ -276,6 +277,12 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.671496, 0.0243492, 0.485278, 1)
 sources/1 = SubResource("TileSetAtlasSource_0sd2h")
 
+[sub_resource type="Curve2D" id="Curve2D_j0djn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 59.4595, 64.865, 0, 0, 0, 0, -2102.7, 59.4595)
+}
+point_count = 2
+
 [node name="Escena-001-zonaInicial" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -299,8 +306,18 @@ scale = Vector2(2, 10)
 [node name="Spawn" parent="Puertas/Puerta" index="1"]
 position = Vector2(-20, 9)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_j0djn")]
-position = Vector2(215, 64)
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(971, 389)
 scale = Vector2(0.185, 0.185)
+curve = SubResource("Curve2D_j0djn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(59.4595, 64.865)
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("4_3j2oy")
+
+[node name="CharacterBody2D" parent="Path2D/PathFollow2D" instance=ExtResource("4_j0djn")]
 
 [editable path="Puertas/Puerta"]
