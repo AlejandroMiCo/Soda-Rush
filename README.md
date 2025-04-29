@@ -8,7 +8,11 @@ godot.
 
 Extensiones usadas:
   - C# Tools for Godot versión 0.2.1
-  - C# Dev Kit versión 1.18.23         
+  - C# Dev Kit versión 1.18.23
+
+Herramientas Pensadas para ser usadas:
+  - Metroidvania System(MetSys) en su versión mas actualizada(*No implementada de momento*)
+  
 
 ## 📕 Diario de actualizaciones
 ```
@@ -23,18 +27,29 @@ Extensiones usadas:
 14/04/2025: Se añadio el movimiento del segundo salto sostenido.
 20/04/2025: Se ha configurado la primera escena del juego, asi como su camara.
 20-21/04/2025: Se ha intentado implementar el cambio entre escenas, pero no se ha logrado, de momento.
+27/04/2025: Tras no ser capaz de hacer un cambio de escena con MetSys, se ha optado por implementar 2 enemigos básicos que siguen un camnino pre-definido.(El zombie hacer el moonwalk y es un feature intencionado).
+29/04/05: Se ha implementado (POR FIN) el cambio de escenas sin el uso de MetSys para el cambio de escenas.
 ```
 
 ## 📝 Errores
 - [ ] Se ha encontrado un error en relacionado con los saltos, de vez en cuando el impulso del salto del personaje se dispara.
-- [x] Se encontro un problema con las texturas anteriores por el cual no se podía configurar de forma adeucada el sistema de auto tiles. ***Corrección** : Se ha optado por usar unos tails que si fueran compatibles haciendo mas agil el desarrollo de los mapas.*
-- [ ] Se han encontrado ciertos problemas con la implementación del cambio de escenas y se han encontrado problemas como funcionalidades que el motor no soporta para C# o funciones no compotibles. 
+- [x] Se encontro un problema con las texturas anteriores por el cual no se podía configurar de forma adeucada el sistema de auto tiles.
 
+***Corrección** : Se ha optado por usar unos tails que si fueran compatibles haciendo mas agil el desarrollo de los mapas.*
+- [x] Problemas y errores con el cambio de escenas.
+  - [x] Se han encontrado ciertos problemas con la implementación del cambio de escenas y se han encontrado problemas como funcionalidades que el motor no soporta para C# o funciones no compotibles. 
+  - [x] Se han encontrado mas problemas con el cambio de escenas, debido a la dificultad para mezclar C# y GDScript. Los metodos proporcionados por MetSys.
+  
+***Corrección** : Tras mucho investigar y mucha prueba y error se ha llegado a una solución que pese a no ser la mas elegante es práctica y tampoco es demasido engorrosa ni complicada para la gestión entre el cambío de habitaciones.*
 
 ## 📈 Progreso
 ![SodaRush - Movimientos básicos](https://github.com/user-attachments/assets/4d58c2d1-249c-4e78-9e64-d148f5527c7b)
 
 ![SodaRush - Cambio de escenas](https://github.com/user-attachments/assets/1402dcb3-7712-48e9-9d16-efe3016187d0)
+
+![SodaRush - Enemigos básicos](https://github.com/user-attachments/assets/5476517a-c053-4100-b442-dd21495012c8)
+
+![SodaRush - Cambio de escenas](https://github.com/user-attachments/assets/4e792f51-d382-4964-8f02-3a30822f6fec)
 
 ## 🎨 Progreso de la artista
   <p align="center">
@@ -44,7 +59,7 @@ Extensiones usadas:
 </p>
 
 ![artista4](https://github.com/user-attachments/assets/02fa9488-50cc-4126-af25-de6b734bfaa3)
-## 💻 Tutoriales seguidos
+## 💻 Tutoriales, docuemntaciones y enlaces interesantes utilizados
 - Vídeo para el salto sostenido: https://www.youtube.com/embed/aQ6l7HNELLg?si=SUBtNdPrhulkqzVk
     [![Alt text](https://img.youtube.com/vi/aQ6l7HNELLg/0.jpg)](https://www.youtube.com/watch?v=aQ6l7HNELLg)
 
@@ -53,6 +68,9 @@ Extensiones usadas:
 
 - Vídeo para ajustar los limites de la camara: https://www.youtube.com/watch?v=kQbkue9sCAg
   [![Alt text](https://img.youtube.com/vi/kQbkue9sCAg/0.jpg)](https://www.youtube.com/watch?v=kQbkue9sCAg)
+
+- Enlace util para conocer más sobre como organizar código en godot y otros consejos útiles:
+  https://new.pythonforengineers.com/blog/how-to-structure-your-godot-project-so-you-dont-get-confused/
 
 ## 🤖 Props de ia usados
 

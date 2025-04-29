@@ -27,8 +27,6 @@ public partial class Player : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
 
-        System.Console.WriteLine("Velocity: " + Velocity.Y);
-
         base._PhysicsProcess(delta);
         speed = SPEED;
 

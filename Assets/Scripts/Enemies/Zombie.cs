@@ -11,10 +11,6 @@ public partial class Zombie : CharacterBody2D
         base._PhysicsProcess(delta);
 
         velocity.Y += GetGravity().Y * (float)delta;
-
-
-
-
         Velocity = velocity;
         MoveAndSlide();
     }

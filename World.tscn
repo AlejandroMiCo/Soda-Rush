@@ -5,9 +5,10 @@
 
 [node name="World" type="Node2D"]
 
-[node name="Escena-001-zonaInicial" parent="." instance=ExtResource("1_c6gwx")]
+[node name="Escena-001" parent="." instance=ExtResource("1_c6gwx")]
 
 [node name="Player" parent="." instance=ExtResource("2_2dftf")]
+top_level = true
 position = Vector2(-75, 408)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
