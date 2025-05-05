@@ -1,5 +1,17 @@
 # 🎮 SODA RUSH
 
+## Problemas durante el desarrollo
+
+El dia 01/05/2025 se averió el equipo con el que se realizaba este proyecto y aun
+no se conoce la fecha a la que se podrá volver a utilizar.
+
+Como solución temporal he conseguido un ordenador con el que intentar avanzar
+mientras se repara el ordenador principal.
+
+Por este motivo el avance de esta semana no puede ser tan grande como el de
+otras semanas y no habra video ya que el ordenador provisional a duras penas soporta
+el motor godot.
+
 ## ☝️ Aspectos a tener en cuenta
 
 Se opto por usar Visual Studio code debido a las facilidades que ofrece para
@@ -30,7 +42,9 @@ Herramientas Pensadas para ser usadas:
 27/04/2025: Tras no ser capaz de hacer un cambio de escena con MetSys, se ha optado por
             implementar 2 enemigos básicos que siguen un camnino pre-definido.
             (El zombie hacer el moonwalk y es un feature intencionado).
-29/04/05: Se ha implementado (POR FIN) el cambio de escenas sin el uso de MetSys para el cambio de escenas.
+29/04/25: Se ha implementado (POR FIN) el cambio de escenas sin el uso de MetSys para el cambio de escenas.
+05/05/25: Se han añadido mas puertas y una escena mas donde se espera depositar el power up del 
+salto sostenido. Se han añadido sonidos para ser usados mas adelante
 ```
 
 ## 📝 Errores
