@@ -1,1 +1,0 @@
-extends PathFollow2D

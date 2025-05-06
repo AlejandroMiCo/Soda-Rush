@@ -311,6 +311,7 @@ radius = 11.0
 height = 44.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("aTree", "sprite") groups=["Player"]]
+scale = Vector2(0.85, 0.85)
 collision_mask = 31
 platform_floor_layers = 4278190084
 platform_wall_layers = 4

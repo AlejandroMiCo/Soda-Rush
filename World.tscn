@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://iofgb37le8jd"]
+[gd_scene load_steps=4 format=3 uid="uid://iofgb37le8jd"]
 
+[ext_resource type="Texture2D" uid="uid://ocjsyodmqbjx" path="res://Assets/Sprites/Map/Background.png" id="1_bcbcq"]
 [ext_resource type="PackedScene" uid="uid://dehos0wf22wox" path="res://Scenes/Niveles/Escena-001.tscn" id="1_c6gwx"]
 [ext_resource type="PackedScene" uid="uid://n1mutygal3tk" path="res://Scenes/Jugador/player.tscn" id="2_2dftf"]
 
 [node name="World" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(653.819, 212.5)
+scale = Vector2(1.52169, 2.64599)
+texture = ExtResource("1_bcbcq")
+region_enabled = true
+region_rect = Rect2(0, -1.758, 1400, 274.186)
 
 [node name="Escena-001" parent="." instance=ExtResource("1_c6gwx")]
 
@@ -12,8 +21,5 @@ top_level = true
 position = Vector2(-75, 408)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = -395
-limit_top = -140
-limit_right = 1635
-limit_bottom = 575
+zoom = Vector2(1.5, 1.5)
 editor_draw_limits = true

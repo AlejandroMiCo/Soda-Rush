@@ -1,4 +1,4 @@
- using Godot;
+using Godot;
 using System;
 using System.Threading.Tasks;
 
@@ -25,7 +25,6 @@ public partial class Puerta : Area2D
 
 	private void ChangeRoom()
 	{
-		System.Console.WriteLine("entro");
 		
 		var world = GetTree().GetRoot().GetNode<Node>("/root/World");
 		world.GetNode(deletedRoom).QueueFree(); 

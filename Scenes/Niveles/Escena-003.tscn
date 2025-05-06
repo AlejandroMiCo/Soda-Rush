@@ -10,8 +10,8 @@ tile_map_data = PackedByteArray("AAAWABYAAQACAAcAAAAWABUAAQACAAYAAAAWABQAAQACAAY
 tile_set = ExtResource("1_7ybnt")
 
 [node name="Puerta" parent="." instance=ExtResource("2_lff3m")]
-position = Vector2(11, 172)
-scale = Vector2(1, 15.25)
+position = Vector2(11, 170)
+scale = Vector2(1, 1.525)
 targetRoomScenePath = "uid://dm5hfw00ejgp"
 deletedRoom = "Escena-003"
 spawnMarker = "Spawn-Drc"

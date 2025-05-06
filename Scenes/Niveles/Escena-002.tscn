@@ -10,33 +10,29 @@ tile_map_data = PackedByteArray("AAAsABcAAQACAAcAAAAsABYAAQACAAYAAAAsABUAAQACAAY
 tile_set = ExtResource("1_wf85w")
 
 [node name="Puerta-izq" parent="." instance=ExtResource("2_lvvtm")]
-position = Vector2(-5, 275)
+position = Vector2(-5, 224)
 targetRoomScenePath = "uid://dehos0wf22wox"
 deletedRoom = "Escena-002"
 spawnMarker = "Spawn-Drc"
 
-[node name="CollisionShape2D" parent="Puerta-izq" index="0"]
-scale = Vector2(1, 5)
-
 [node name="Spawn-Izq" type="Marker2D" parent="."]
 position = Vector2(21, 307)
+
+[node name="Puerta-Drc" parent="." instance=ExtResource("2_lvvtm")]
+position = Vector2(994, 219)
+targetRoomScenePath = "uid://db33htartmmtr"
+deletedRoom = "Escena-002"
+spawnMarker = "Spawn"
 
 [node name="Spawn-Drc" type="Marker2D" parent="."]
 position = Vector2(962, 304)
 scale = Vector2(1.3, 10.95)
 
-[node name="Puerta-Drc" parent="." instance=ExtResource("2_lvvtm")]
-position = Vector2(993, 215)
-scale = Vector2(1.3, 10.95)
-targetRoomScenePath = "uid://db33htartmmtr"
-deletedRoom = "Escena-002"
-spawnMarker = "Spawn"
-
 [node name="Puerta-Arb" parent="." instance=ExtResource("2_lvvtm")]
-position = Vector2(993, 32)
-scale = Vector2(1.3, 5.8)
+position = Vector2(994, -10)
+targetRoomScenePath = "uid://c1wxrsar0hbo8"
+deletedRoom = "Escena-002"
+spawnMarker = "Spawn-G"
 
 [node name="Spawn-Arb" type="Marker2D" parent="."]
 position = Vector2(962, 75)
-
-[editable path="Puerta-izq"]
