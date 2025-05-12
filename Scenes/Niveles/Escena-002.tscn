@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=4 uid="uid://dm5hfw00ejgp"]
+[gd_scene load_steps=5 format=4 uid="uid://dm5hfw00ejgp"]
 
 [ext_resource type="TileSet" uid="uid://bpjtkouwwp0db" path="res://Assets/TileSets/TileSet001.tres" id="1_wf85w"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="2_lvvtm"]
+[ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="3_wf85w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6lwi"]
+size = Vector2(1019.69, 540.25)
 
 [node name="Escena-002" type="Node2D"]
 
@@ -36,3 +40,14 @@ spawnMarker = "Spawn-G"
 
 [node name="Spawn-Arb" type="Marker2D" parent="."]
 position = Vector2(962, 75)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(492, 160)
+script = ExtResource("3_wf85w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.84375, 0)
+shape = SubResource("RectangleShape2D_q6lwi")
+debug_color = Color(0.813215, 0.162216, 0.907921, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]

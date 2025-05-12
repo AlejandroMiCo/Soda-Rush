@@ -325,6 +325,7 @@ loop = false
 
 [node name="Skeleton" parent="Path2D2/PathFollow2D" groups=["Enemies"] instance=ExtResource("4_qt8ot")]
 rotation = -3.14159
+scale = Vector2(1, 1)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(971, 389)
@@ -356,15 +357,14 @@ position = Vector2(623, 287.5)
 shape = SubResource("RectangleShape2D_3j2oy")
 
 [node name="Spawn-Izq" type="Marker2D" parent="."]
+position = Vector2(-299, 295)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(623, 285)
 script = ExtResource("5_3j2oy")
-LimitRight = 900
-LimitTop = 800
-LimitBottom = -200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(621, 280.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_qt8ot")
 debug_color = Color(0.814461, 0.0270535, 0.971766, 0.42)
 
