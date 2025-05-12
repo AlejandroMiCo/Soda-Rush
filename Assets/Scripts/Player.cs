@@ -79,12 +79,12 @@ public partial class Player : CharacterBody2D
         if (IsOnFloor() && Velocity.X != 0)
         {
             stm.Travel("Run");
-            if (Velocity.X < 0)
+            if (Velocity.X > 0)
             {
                 sprite.FlipH = true;
             }
 
-            if (Velocity.X > 0)
+            if (Velocity.X < 0)
             {
                 sprite.FlipH = false;
             }

@@ -49,6 +49,7 @@ Herramientas Pensadas para ser usadas:
 salto sostenido. Se han añadido sonidos para ser usados mas adelante.
 06/05/25: Se han creado y conectado las salas básicas pensadas para usar las diferentes
             habulidades del personje princial.
+12/05/25: Se ha cambiado algunos sprites del personaje principal para usar las animaciones del artista.
 ```
 
 ## 📝 Errores

@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://dehos0wf22wox"]
+[gd_scene load_steps=10 format=4 uid="uid://dehos0wf22wox"]
 
 [ext_resource type="Texture2D" uid="uid://du2jkw5pkrc7t" path="res://Assets/Sprites/Map/001-tilemap.png" id="2_j0djn"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="3_kf5xg"]
-[ext_resource type="Script" uid="uid://b42yry1kvwx41" path="res://Assets/Scripts/PathFollow2d.cs" id="4_3j2oy"]
 [ext_resource type="PackedScene" uid="uid://dcw03kfitq4n3" path="res://Scenes/Enemigos/zombie.tscn" id="4_j0djn"]
 [ext_resource type="PackedScene" uid="uid://db6g4ghighsmd" path="res://Scenes/Enemigos/Skeleton.tscn" id="4_qt8ot"]
 
@@ -319,12 +318,9 @@ rotation = -3.10543
 progress = 7.00366
 rotates = false
 loop = false
-script = ExtResource("4_3j2oy")
-speed = 0.3
 
 [node name="Skeleton" parent="Path2D2/PathFollow2D" groups=["Enemies"] instance=ExtResource("4_qt8ot")]
 rotation = -3.14159
-scale = Vector2(1, 1)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(971, 389)
@@ -336,7 +332,6 @@ position = Vector2(59.4595, 64.865)
 rotates = false
 cubic_interp = false
 loop = false
-script = ExtResource("4_3j2oy")
 
 [node name="CharacterBody2D" parent="Path2D/PathFollow2D" instance=ExtResource("4_j0djn")]
 position = Vector2(-43.2432, -86.4867)
