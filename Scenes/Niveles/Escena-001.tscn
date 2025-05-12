@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dehos0wf22wox"]
+[gd_scene load_steps=12 format=4 uid="uid://dehos0wf22wox"]
 
 [ext_resource type="Texture2D" uid="uid://du2jkw5pkrc7t" path="res://Assets/Sprites/Map/001-tilemap.png" id="2_j0djn"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="3_kf5xg"]
 [ext_resource type="PackedScene" uid="uid://dcw03kfitq4n3" path="res://Scenes/Enemigos/zombie.tscn" id="4_j0djn"]
 [ext_resource type="PackedScene" uid="uid://db6g4ghighsmd" path="res://Scenes/Enemigos/Skeleton.tscn" id="4_qt8ot"]
+[ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="5_3j2oy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sd2h"]
 texture = ExtResource("2_j0djn")
@@ -291,6 +292,9 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3j2oy"]
 size = Vector2(2028, 571)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt8ot"]
+size = Vector2(2026, 581)
+
 [node name="Escena-001" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -353,4 +357,16 @@ shape = SubResource("RectangleShape2D_3j2oy")
 
 [node name="Spawn-Izq" type="Marker2D" parent="."]
 
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("5_3j2oy")
+LimitRight = 900
+LimitTop = 800
+LimitBottom = -200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(621, 280.5)
+shape = SubResource("RectangleShape2D_qt8ot")
+debug_color = Color(0.814461, 0.0270535, 0.971766, 0.42)
+
 [connection signal="body_entered" from="LimiteDeCamara" to="LimiteDeCamara" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]

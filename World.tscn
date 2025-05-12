@@ -8,8 +8,8 @@
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(676.5, -109.5)
-scale = Vector2(1.85929, 6.64599)
+position = Vector2(698, 26)
+scale = Vector2(2.37929, 6.01825)
 texture = ExtResource("1_bcbcq")
 region_enabled = true
 region_rect = Rect2(0, -1.758, 1400, 274.186)
