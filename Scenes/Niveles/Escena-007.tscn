@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=4 uid="uid://bhh8p4fsg28aq"]
+[gd_scene load_steps=8 format=4 uid="uid://bhh8p4fsg28aq"]
 
 [ext_resource type="TileSet" uid="uid://bpjtkouwwp0db" path="res://Assets/TileSets/TileSet001.tres" id="1_w6v2x"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="2_xgg4d"]
 [ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="3_lkudy"]
+[ext_resource type="Script" uid="uid://4qsae373ihh" path="res://Scenes/Niveles/SavePoint.cs" id="4_nmdmn"]
+[ext_resource type="Texture2D" uid="uid://48g8f0p1ruf3" path="res://Assets/Sprites/Map/Save.png" id="5_frg88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgg4d"]
 size = Vector2(804.5, 215)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3lnv"]
 
 [node name="Escena-007" type="Node2D"]
 
@@ -29,11 +33,30 @@ position = Vector2(799, 279)
 position = Vector2(766, 369)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(404, 287)
 script = ExtResource("3_lkudy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xgg4d")
 debug_color = Color(0.637118, 0.52599, 0.0285687, 0.42)
+
+[node name="SavePoint2" type="Area2D" parent="."]
+position = Vector2(378, 358)
+script = ExtResource("4_nmdmn")
+id = "save_02"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoint2"]
+light_mask = 16
+scale = Vector2(2.99932, 2.93595)
+shape = SubResource("CircleShape2D_v3lnv")
+debug_color = Color(0.926315, 0.103778, 0.616346, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="SavePoint2"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_frg88")
+
+[node name="SaveSpawn" type="Marker2D" parent="."]
+position = Vector2(339, 372)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]

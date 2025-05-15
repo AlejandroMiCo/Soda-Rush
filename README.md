@@ -51,7 +51,10 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
             habulidades del personje princial.
 12/05/25: Se ha cambiado algunos sprites del personaje principal para usar las animaciones del artista.
           Se han limitado las camaras en todas las escenas para solo mostrar aquello que se quiera mostrar
-          y para que la camara se detenga al llegar a una puerta.S
+          y para que la camara se detenga al llegar a una puerta.
+12-15/05/25: Se ha trabajado en una pequeña aniamcion al entrar y salir de salas, se ha cambiado el 
+          codigo del personaje para que fuera mejor, se ha trabajado en el desbloqueable del doble,
+          salto y se ha trabajado en la gestion de datos de partida guardada.
 ```
 
 ## 📝 Errores
@@ -66,6 +69,8 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
   - [x] Se han encontrado mas problemas con el cambio de escenas, debido a la dificultad para mezclar C# y GDScript. Los metodos proporcionados por MetSys.
 
 **\*Corrección** : Tras mucho investigar y mucha prueba y error se ha llegado a una solución que pese a no ser la mas elegante es práctica y tampoco es demasido engorrosa ni complicada para la gestión entre el cambío de habitaciones.\*
+
+- [ ] Problemas a la hora de establecer en que punto de guardado debe reaparecer el personaje al abrir el juego otra vez.
 
 ## 📈 Progreso (en formato mini-videos)
 

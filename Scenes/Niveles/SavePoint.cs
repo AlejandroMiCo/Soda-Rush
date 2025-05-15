@@ -3,7 +3,7 @@ using System;
 
 public partial class SavePoint : Area2D
 {
-	[Export] public string id = "save_01"; // ID único del punto de guardado
+	[Export] public string id; // ID único del punto de guardado
 	private bool canSave = false;
 
 	public override void _Ready()
