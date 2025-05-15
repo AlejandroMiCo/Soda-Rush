@@ -4,7 +4,6 @@ using System;
 public partial class World : Node2D
 {
 	[Export] public PackedScene defaultRoomScene;
-	[Export] public PackedScene playerScene;
 	[Export] public NodePath gameSaveManagerPath = "GameSaveManager";
 
 	public override void _Ready()
@@ -14,7 +13,6 @@ public partial class World : Node2D
 
 		if (saveData != null)
 		{
-			GD.Print("✅ Cargando partida guardada...");
 
 			// Cargar habitación guardada
 			var roomScene = GD.Load<PackedScene>($"res://Scenes/Niveles/{saveData.CurrentRoom}.tscn");
@@ -22,23 +20,23 @@ public partial class World : Node2D
 			AddChild(room);
 
 			// Instanciar y posicionar jugador
-			var player = playerScene.Instantiate<Player>();
-			player.GlobalPosition = saveData.PlayerPosition;
+			var player = GetTree().Root.GetNode<Player>("/root/World/Player");
+			var position = room.GetNode<Marker2D>("SaveSpawn");
+			System.Console.WriteLine(position.Position);
+			player.GlobalPosition = position.Position;
 
 			if (saveData.DoubleJumpUnlocked)
-				player.UnlockFloatJump(); // Usamos el método, no una propiedad pública
+				player.UnlockFloatJump();
 
 			AddChild(player);
 		}
 		else
 		{
-			GD.Print("🆕 No se encontró guardado, cargando habitación y jugador por defecto.");
-
 			var room = defaultRoomScene.Instantiate<Node2D>();
 			AddChild(room);
 
-			var player = playerScene.Instantiate<Player>();
-			player.GlobalPosition = new Vector2(100, 100); // Ajusta según el nivel
+			var player = GetTree().Root.GetNode<Player>("/root/World/Player");
+			player.GlobalPosition = new Vector2(0, 350); // Ajusta según el nivel
 			AddChild(player);
 		}
 	}

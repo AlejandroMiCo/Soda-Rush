@@ -50,4 +50,7 @@ debug_color = Color(0.926315, 0.103778, 0.616346, 0.42)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_5teax")
 
+[node name="SaveSpawn" type="Marker2D" parent="."]
+position = Vector2(397, 382)
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]
