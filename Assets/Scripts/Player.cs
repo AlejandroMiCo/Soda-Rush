@@ -18,6 +18,9 @@ public partial class Player : CharacterBody2D
 
 	private bool isFloatingJumpUnlock = false;
 
+  	private Vector2 savedPosition;
+	private bool savedDoubleJumpUnlock;
+
 	// Se ejecuta cuando el nodo se carga en la escena
 	public override void _Ready()
 	{
@@ -115,5 +118,37 @@ public partial class Player : CharacterBody2D
 
 	public void UnlockFloatJump(){
 		isFloatingJumpUnlock = true;
+	}
+
+	 // Método para obtener el estado del jugador
+	public GameSaveManager.SaveData GetCurrentState()
+	{
+		return new GameSaveManager.SaveData
+		{
+			PlayerPosition = this.GlobalPosition, // Posición del jugador
+			CurrentRoom = "Escena-04", // Nombre de la habitación actual (esto puede ser dinámico)
+			DoubleJumpUnlocked = this.isFloatingJumpUnlock, // Estado del doble salto
+		};
+	}
+
+	// Método para cargar el estado guardado del jugador
+	private void LoadGameState()
+	{
+		var saveManager = GetTree().Root.GetNode<GameSaveManager>("/root/World/GameSaveManager");
+		var saveData = saveManager.LoadGame();
+
+
+		if (saveData != null)
+		{
+			// Restaurar la posición del jugador desde el guardado
+			this.GlobalPosition = saveData.PlayerPosition;
+
+			// Restaurar las habilidades desbloqueadas
+			this.isFloatingJumpUnlock = saveData.DoubleJumpUnlocked;
+		}
+		else
+		{
+			GD.Print("No se encontró un guardado previo.");
+		}
 	}
 }

@@ -23,16 +23,17 @@ public partial class Puerta : Area2D
 		}
 	}
 
-	private void ChangeRoom()
+	private async void ChangeRoom()
 	{
+		var fadeManager = GetTree().Root.GetNode<FadeManager>("/root/FadeManager");
+		await fadeManager.FadeToBlack();
 
 		var world = GetTree().GetRoot().GetNode<Node>("/root/World");
+
 		world.GetNode(deletedRoom).QueueFree();
 
 		var newRoomScene = GD.Load<PackedScene>(targetRoomScenePath);
-
 		var instatiatedRoom = newRoomScene.Instantiate();
-
 		world.AddChild(instatiatedRoom);
 
 		var marker = instatiatedRoom.GetNodeOrNull<Marker2D>(spawnMarker);
@@ -41,5 +42,7 @@ public partial class Puerta : Area2D
 		{
 			player.Position = marker.Position;
 		}
+
+		await fadeManager.FadeFromBlack();
 	}
 }
