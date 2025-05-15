@@ -25,9 +25,9 @@ public partial class Puerta : Area2D
 
 	private void ChangeRoom()
 	{
-		
+
 		var world = GetTree().GetRoot().GetNode<Node>("/root/World");
-		world.GetNode(deletedRoom).QueueFree(); 
+		world.GetNode(deletedRoom).QueueFree();
 
 		var newRoomScene = GD.Load<PackedScene>(targetRoomScenePath);
 

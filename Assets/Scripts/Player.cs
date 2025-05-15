@@ -4,105 +4,116 @@ using System;
 public partial class Player : CharacterBody2D
 {
 
-    [Export] public float speed = 200f;
-    private Vector2 velocity;
-    private AnimationNodeStateMachinePlayback stm;
-    [Export] public AnimationTree aTree;
-    [Export] public Sprite2D sprite;
-    [Export] public float jumpForce = 50f;
+	[Export] public float speed = 200f;
+	private Vector2 velocity;
+	private AnimationNodeStateMachinePlayback stm;
+	[Export] public AnimationTree aTree;
+	[Export] public Sprite2D sprite;
+	[Export] public float jumpForce = 50f;
 
-    private float SPEED = 200f;
-    private bool canDoubleJump = true;
-    private bool isFloating = false;
+	private float SPEED = 200f;
+	private bool canFloat = true;
+	private bool isFloating = false;
+	private bool lookingRight = false;
+
+	private bool isFloatingJumpUnlock = false;
+
+	// Se ejecuta cuando el nodo se carga en la escena
+	public override void _Ready()
+	{
+		base._Ready();
+		stm = (AnimationNodeStateMachinePlayback)aTree.Get("parameters/playback");
+	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+
+		base._PhysicsProcess(delta);
+		speed = SPEED;
+
+		//Obtiene el nombre de los controles de godot
+		Vector2 direccion = new Vector2(Input.GetActionStrength("right") - Input.GetActionStrength("left"), 0);
+		bool onFloor = IsOnFloor();
 
 
 
-    // Se ejecuta cuando el nodo se carga en la escena
-    public override void _Ready()
-    {
-        base._Ready();
-        stm = (AnimationNodeStateMachinePlayback)aTree.Get("parameters/playback");
-    }
+		if (Input.IsActionJustPressed("attack"))
+		{
+			stm.Travel("Attack");
+			return;
+		}
 
-    public override void _PhysicsProcess(double delta)
-    {
+		if (onFloor && Input.IsActionJustPressed("jump"))
+		{
+			velocity.Y = -jumpForce * 8F;
+			stm.Travel("jump");
+		}
 
-        base._PhysicsProcess(delta);
-        speed = SPEED;
+		if (!onFloor)
+		{
 
-        //Obtiene el nombre de los controles de godot
-        Vector2 direccion = new Vector2(Input.GetActionStrength("right") - Input.GetActionStrength("left"), 0);
+			if (Input.IsActionPressed("jump") && !isFloating && velocity.Y > 0)
+			{
+				isFloating = true;
+			}
+
+			if (Input.IsActionJustReleased("jump"))
+			{
+				isFloating = false;
+			}
+
+			if (isFloating && isFloatingJumpUnlock)
+			{
+				velocity.Y -= 2f;
+				speed = SPEED / 3;
+			}
+			else
+			{
+				velocity.Y += GetGravity().Y * (float)delta;
+			}
+
+			if (stm.GetCurrentNode() != "attack")
+			{
+				stm.Travel("jump");
+			}
+		}
+
+		velocity.X = direccion.X * speed;
+		Velocity = velocity;
+
+		if (IsOnFloor())
+		{
+			isFloating = false;
+
+			if (Velocity.X != 0)
+			{
+				stm.Travel("Run");
+			}
+			else
+			{
+				stm.Travel("Idle");
+			}
+		}
+
+		// Solo se cambia la booleana cuando el valor es distinto de 0 de forma que al quedarse quieto se guarda el valor correcto
+		if (Velocity.X != 0)
+		{
+			lookingRight = direccion.X > 0;
+		}
+
+		sprite.FlipH = lookingRight;
 
 
-        if (Input.IsActionJustPressed("attack"))
-        {
-            stm.Travel("Attack");
-            return;
-        }
+		MoveAndSlide();
+	}
 
-        if (IsOnFloor() && Input.IsActionJustPressed("jump"))
-        {
-            velocity.Y = -jumpForce * 8F;
-        }
+	public void floatJump()
+	{
+		canFloat = false;
+		isFloating = true;
+	}
 
-        if (!IsOnFloor())
-        {
-            stm.Travel("jump");
-        }
-
-        if (!IsOnFloor() && Input.IsActionPressed("jump") && canDoubleJump && velocity.Y > 0)
-        {
-            doubleJump();
-        }
-
-        if (!IsOnFloor() && Input.IsActionJustReleased("jump"))
-        {
-            isFloating = false;
-        }
-
-        if (!IsOnFloor() && !isFloating)
-        {
-            velocity.Y += GetGravity().Y * (float)delta;
-        }
-
-        if (isFloating)
-        {
-            velocity.Y -= 2;
-            speed = SPEED / 3;
-        }
-
-        if (IsOnFloor())
-        {
-            canDoubleJump = true;
-        }
-
-        if (IsOnFloor() && Velocity.X != 0)
-        {
-            stm.Travel("Run");
-            if (Velocity.X > 0)
-            {
-                sprite.FlipH = true;
-            }
-
-            if (Velocity.X < 0)
-            {
-                sprite.FlipH = false;
-            }
-        }
-        
-        if (IsOnFloor() && Velocity.X == 0)
-        {
-            stm.Travel("Idle");
-        }
-
-        velocity.X = direccion.X * speed;
-        Velocity = velocity;
-        MoveAndSlide();
-    }
-
-    public void doubleJump()
-    {
-        canDoubleJump = false;
-        isFloating = true;
-    }
+	public void UnlockFloatJump(){
+		isFloatingJumpUnlock = true;
+	}
 }

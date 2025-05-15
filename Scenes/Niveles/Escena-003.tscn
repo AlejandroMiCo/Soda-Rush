@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://db33htartmmtr"]
+[gd_scene load_steps=7 format=4 uid="uid://db33htartmmtr"]
 
 [ext_resource type="TileSet" uid="uid://bpjtkouwwp0db" path="res://Assets/TileSets/TileSet001.tres" id="1_7ybnt"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="2_lff3m"]
 [ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="3_yrn80"]
+[ext_resource type="Script" uid="uid://bbg5fw836glbw" path="res://Scenes/Niveles/UnlockJump.cs" id="4_8w4jd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4jd"]
 size = Vector2(645, 446)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wlk2"]
 
 [node name="Escena-003" type="Node2D"]
 
@@ -24,6 +27,7 @@ spawnMarker = "Spawn-Drc"
 position = Vector2(41, 311)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(324, 190)
 script = ExtResource("3_yrn80")
 
@@ -32,4 +36,13 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_8w4jd")
 debug_color = Color(0.682262, 0.338804, 0.929297, 0.42)
 
+[node name="RigidBody2D" type="Area2D" parent="."]
+position = Vector2(600, 146)
+collision_layer = 16
+script = ExtResource("4_8w4jd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_6wlk2")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="OnBodyEntered"]
