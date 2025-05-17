@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://db33htartmmtr"]
+[gd_scene load_steps=8 format=4 uid="uid://db33htartmmtr"]
 
 [ext_resource type="TileSet" uid="uid://bpjtkouwwp0db" path="res://Assets/TileSets/TileSet001.tres" id="1_7ybnt"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="2_lff3m"]
 [ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="3_yrn80"]
 [ext_resource type="Script" uid="uid://bbg5fw836glbw" path="res://Scenes/Niveles/UnlockJump.cs" id="4_8w4jd"]
+[ext_resource type="Texture2D" uid="uid://c6c6g6dnh65yk" path="res://Assets/Sprites/Map/water bottle.png" id="5_6wlk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4jd"]
 size = Vector2(645, 446)
@@ -43,6 +44,10 @@ script = ExtResource("4_8w4jd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_6wlk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_6wlk2")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="OnBodyEntered"]

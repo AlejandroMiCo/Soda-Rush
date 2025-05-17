@@ -56,7 +56,7 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
           codigo del personaje para que fuera mejor, se ha trabajado en el desbloqueable del doble,
           salto y se ha trabajado en la gestion de datos de partida guardada.
 17/05/25: Se ha añadido la primera version de la animacion de ataque del personaje y se eliminaran los archivos
-          temporales del personaje anterior.
+          temporales del personaje anterior. Se ha añadido un sprite para el desbloqueable del salto sostenido.
 ```
 
 ## 📝 Errores
@@ -73,6 +73,7 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
 **\*Corrección** : Tras mucho investigar y mucha prueba y error se ha llegado a una solución que pese a no ser la mas elegante es práctica y tampoco es demasido engorrosa ni complicada para la gestión entre el cambío de habitaciones.\*
 
 - [ ] Problemas a la hora de establecer en que punto de guardado debe reaparecer el personaje al abrir el juego otra vez.
+- [ ] Al cargar las escena del desbloqueable, aunque se haya obtenido el objeto este se vuelve a cargar.
 
 ## 📈 Progreso (en formato mini-videos)
 
