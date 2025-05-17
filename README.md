@@ -55,6 +55,8 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
 12-15/05/25: Se ha trabajado en una pequeña aniamcion al entrar y salir de salas, se ha cambiado el 
           codigo del personaje para que fuera mejor, se ha trabajado en el desbloqueable del doble,
           salto y se ha trabajado en la gestion de datos de partida guardada.
+17/05/25: Se ha añadido la primera version de la animacion de ataque del personaje y se eliminaran los archivos
+          temporales del personaje anterior.
 ```
 
 ## 📝 Errores

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ucn7mugtycnn"
-path="res://.godot/imported/Idle-Sheet.png-61e7fea17d2235236317f8ac3ad9e28f.ctex"
+uid="uid://bl333r7ju4bev"
+path="res://.godot/imported/attack-Shee1t.png-606354f83d5f1bc5eb34e9c9d41e777d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/Idle-Sheet.png"
-dest_files=["res://.godot/imported/Idle-Sheet.png-61e7fea17d2235236317f8ac3ad9e28f.ctex"]
+source_file="res://Assets/Sprites/Characters/attack-Shee1t.png"
+dest_files=["res://.godot/imported/attack-Shee1t.png-606354f83d5f1bc5eb34e9c9d41e777d.ctex"]
 
 [params]
 
