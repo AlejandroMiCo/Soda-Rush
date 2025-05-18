@@ -10,6 +10,7 @@ public partial class Player : CharacterBody2D
 	[Export] public AnimationTree aTree;
 	[Export] public Sprite2D sprite;
 	[Export] public float jumpForce = 50f;
+	[Export] public Area2D attackArea;
 
 	private float SPEED = 200f;
 	private bool canFloat = true;
@@ -18,7 +19,7 @@ public partial class Player : CharacterBody2D
 
 	private bool isFloatingJumpUnlock = false;
 
-  	private Vector2 savedPosition;
+	private Vector2 savedPosition;
 	private bool savedDoubleJumpUnlock;
 
 	// Se ejecuta cuando el nodo se carga en la escena
@@ -101,13 +102,29 @@ public partial class Player : CharacterBody2D
 		// Solo se cambia la booleana cuando el valor es distinto de 0 de forma que al quedarse quieto se guarda el valor correcto
 		if (Velocity.X != 0)
 		{
-			lookingRight = direccion.X > 0;
+			bool newLookingRight = direccion.X < 0;
+
+			if (newLookingRight != lookingRight)
+			{
+				lookingRight = newLookingRight;
+
+				// Flip del sprite
+				sprite.FlipH = !lookingRight;
+
+				// Mover el Area2D horizontalmente al otro lado
+				var areaPos = attackArea.Position;
+				areaPos.X = Mathf.Abs(areaPos.X) * (lookingRight ? -1f : 1);
+				attackArea.Position = areaPos;
+			}
 		}
 
-		sprite.FlipH = lookingRight;
-
-
 		MoveAndSlide();
+	}
+
+	public void TakeDamage(int amount)
+	{
+		// Resta vida, juega animaciones, etc.
+		GD.Print($"Jugador recibió {amount} de daño.");
 	}
 
 	public void floatJump()
@@ -116,11 +133,12 @@ public partial class Player : CharacterBody2D
 		isFloating = true;
 	}
 
-	public void UnlockFloatJump(){
+	public void UnlockFloatJump()
+	{
 		isFloatingJumpUnlock = true;
 	}
 
-	 // Método para obtener el estado del jugador
+	// Método para obtener el estado del jugador
 	public GameSaveManager.SaveData GetCurrentState()
 	{
 		return new GameSaveManager.SaveData

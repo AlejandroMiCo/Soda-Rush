@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://db6g4ghighsmd"]
+[gd_scene load_steps=20 format=3 uid="uid://db6g4ghighsmd"]
 
 [ext_resource type="Script" uid="uid://dablnrydoxlhd" path="res://Assets/Scripts/Enemies/Skeleton.cs" id="1_bhes4"]
 [ext_resource type="Texture2D" uid="uid://y0v2d80ljons" path="res://Assets/Sprites/Enemies/Skeleton/go_1.png" id="1_nnksh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cnnjhhngj0yua" path="res://Assets/Sprites/Enemies/Skeleton/go_6.png" id="6_qy2ne"]
 [ext_resource type="Texture2D" uid="uid://bpk7lbf6ina7x" path="res://Assets/Sprites/Enemies/Skeleton/go_7.png" id="7_jufqh"]
 [ext_resource type="Texture2D" uid="uid://bl78ii0ilhye1" path="res://Assets/Sprites/Enemies/Skeleton/go_8.png" id="8_l54y0"]
+[ext_resource type="Script" uid="uid://dlyqfm7stplsw" path="res://Assets/Scripts/HurtBox.cs" id="11_uvqkq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h6j3x"]
 animations = [{
@@ -120,8 +121,11 @@ _data = {
 radius = 92.96
 height = 353.1
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jufqh"]
+
 [node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
-scale = Vector2(0.1, 0.1)
+collision_layer = 2
+collision_mask = 33
 script = ExtResource("1_bhes4")
 sprite = NodePath("AnimatedSprite2D")
 
@@ -140,3 +144,13 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_hsnmi")
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("Owner")]
+scale = Vector2(11.1684, 8.41839)
+script = ExtResource("11_uvqkq")
+Owner = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+scale = Vector2(1.12, 1.44)
+shape = SubResource("CapsuleShape2D_jufqh")
+debug_color = Color(0.641418, 0.336491, 1, 0.42)

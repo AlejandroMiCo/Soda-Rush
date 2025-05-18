@@ -57,7 +57,8 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
           salto y se ha trabajado en la gestion de datos de partida guardada.
 17/05/25: Se ha añadido la primera version de la animacion de ataque del personaje y se eliminaran los archivos
           temporales del personaje anterior. Se ha añadido un sprite para el desbloqueable del salto sostenido.
-18/05/20: Se han hechos pequeñas correciones de errores.
+18/05/20: Se han hechos pequeñas correciones de errores. Se ha añadido el sistemas básico de combate, deteccion con
+          hitboxes y hurtboxes de los enemigos.
 ```
 
 ## 📝 Errores

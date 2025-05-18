@@ -325,7 +325,6 @@ loop = false
 
 [node name="Skeleton" parent="Path2D2/PathFollow2D" groups=["Enemies"] instance=ExtResource("4_qt8ot")]
 rotation = -3.14159
-scale = Vector2(1, 1)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(971, 389)
@@ -360,6 +359,7 @@ shape = SubResource("RectangleShape2D_3j2oy")
 position = Vector2(-299, 295)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(623, 285)
 script = ExtResource("5_3j2oy")
 

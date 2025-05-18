@@ -15,4 +15,10 @@ public partial class Zombie : CharacterBody2D
         MoveAndSlide();
     }
 
+    public void TakeDamage(int amount)
+    {
+        // Resta vida, juega animaciones, etc.
+        GD.Print($"Jugador recibió {amount} de daño.");
+    }
+
 }
