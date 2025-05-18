@@ -63,6 +63,7 @@ _data = {
 [node name="World" type="Node2D"]
 script = ExtResource("1_eu7l1")
 defaultRoomScene = ExtResource("2_eu7l1")
+playerScene = ExtResource("2_2dftf")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -71,14 +72,6 @@ scale = Vector2(2.37929, 6.01825)
 texture = ExtResource("1_bcbcq")
 region_enabled = true
 region_rect = Rect2(0, -1.758, 1400, 274.186)
-
-[node name="Player" parent="." instance=ExtResource("2_2dftf")]
-top_level = true
-position = Vector2(-75, 408)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.5, 1.5)
-editor_draw_limits = true
 
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 

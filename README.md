@@ -57,6 +57,7 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
           salto y se ha trabajado en la gestion de datos de partida guardada.
 17/05/25: Se ha añadido la primera version de la animacion de ataque del personaje y se eliminaran los archivos
           temporales del personaje anterior. Se ha añadido un sprite para el desbloqueable del salto sostenido.
+18/05/20: Se han hechos pequeñas correciones de errores.
 ```
 
 ## 📝 Errores
@@ -74,6 +75,8 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
 
 - [ ] Problemas a la hora de establecer en que punto de guardado debe reaparecer el personaje al abrir el juego otra vez.
 - [ ] Al cargar las escena del desbloqueable, aunque se haya obtenido el objeto este se vuelve a cargar.
+- [x] La consola lanza un error de que ya estaba instanciado el nodo player en el arbol de nodos.
+      **\*Corrección**: Se exporta la variable del nodo player para que no haya problemas .\*  
 
 ## 📈 Progreso (en formato mini-videos)
 

@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://tds6gtex1h8f" path="res://Assets/Sprites/Characters/JUMP-Sheet.png" id="5_6pwta"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6pwta"]
-load_path = "res://.godot/imported/Attack-01-Sheet.png-1b885aef090da5990adef0343d87e2d7.ctex"
 
 [sub_resource type="Animation" id="Animation_tx1dd"]
 resource_name = "Attack"
@@ -344,3 +343,6 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_wpjfl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)

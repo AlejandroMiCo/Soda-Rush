@@ -5,6 +5,8 @@ public partial class World : Node2D
 {
 	[Export] public PackedScene defaultRoomScene;
 	[Export] public NodePath gameSaveManagerPath = "GameSaveManager";
+	[Export] public PackedScene playerScene;
+
 
 	public override void _Ready()
 	{
@@ -20,9 +22,9 @@ public partial class World : Node2D
 			AddChild(room);
 
 			// Instanciar y posicionar jugador
-			var player = GetTree().Root.GetNode<Player>("/root/World/Player");
+			var player = playerScene.Instantiate<Player>();
+
 			var position = room.GetNode<Marker2D>("SaveSpawn");
-			System.Console.WriteLine(position.Position);
 			player.GlobalPosition = position.Position;
 
 			if (saveData.DoubleJumpUnlocked)
@@ -35,7 +37,8 @@ public partial class World : Node2D
 			var room = defaultRoomScene.Instantiate<Node2D>();
 			AddChild(room);
 
-			var player = GetTree().Root.GetNode<Player>("/root/World/Player");
+			var player = playerScene.Instantiate<Player>();
+
 			player.GlobalPosition = new Vector2(0, 350); // Ajusta según el nivel
 			AddChild(player);
 		}
