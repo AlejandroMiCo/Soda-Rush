@@ -58,7 +58,7 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
 17/05/25: Se ha añadido la primera version de la animacion de ataque del personaje y se eliminaran los archivos
           temporales del personaje anterior. Se ha añadido un sprite para el desbloqueable del salto sostenido.
 18/05/20: Se han hechos pequeñas correciones de errores. Se ha añadido el sistemas básico de combate, deteccion con
-          hitboxes y hurtboxes de los enemigos.
+          hitboxes y hurtboxes de los enemigos. Se ha implementado un menu básico que precede al juego principal.
 ```
 
 ## 📝 Errores
@@ -81,6 +81,8 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
       **\*Corrección**: Se comprueba si el Player ya ha obtenido el doble salto y en dicho caso se libera el objeto.\*
 - [x] La consola lanza un error de que ya estaba instanciado el nodo player en el arbol de nodos.
       **\*Corrección**: Se exporta la variable del nodo player para que no haya problemas .\*  
+- [ ] Se ha encontrado un error a la hora de eliminar un enemigo que sigue una direccion determinada, no se libera el path
+      cuando el enemigo se elimina.
 
 ## 📈 Progreso (en formato mini-videos)
 
@@ -136,3 +138,8 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
   <img src="https://github.com/user-attachments/assets/d545aaa8-787c-4024-bf9b-308cf630f647" width="200" alt="Imagen 2" />
   <img src="https://github.com/user-attachments/assets/84d6c205-4ace-47f8-ad4b-481dcf6ebfa1" width="200" alt="Imagen 3" />
 </p>
+
+**Props para genrear la imagen de inicio del juego**
+- Prop 1: _"Podrias generar un fondo para una pantalla de titulo de un videojuego? El juego se llama Soda Rush y me gustaria que el estilo fuera pixel art y hubiera algunas botellas de soda en el fondo"_
+- Prop 2: _"La ambientacion me la imagino algo asi como en una pradera/bosque, me gustaria que tuviera colores tipo arcade de unos 1920x1080 y me gustaria que el titulo fuera en el centro de la parte superior
+- Imagen:
