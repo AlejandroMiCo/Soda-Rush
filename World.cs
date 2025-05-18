@@ -12,6 +12,8 @@ public partial class World : Node2D
 	{
 		var saveManager = GetNode<GameSaveManager>(gameSaveManagerPath);
 		var saveData = saveManager.LoadGame();
+		var player = playerScene.Instantiate<Player>();
+
 
 		if (saveData != null)
 		{
@@ -22,25 +24,23 @@ public partial class World : Node2D
 			AddChild(room);
 
 			// Instanciar y posicionar jugador
-			var player = playerScene.Instantiate<Player>();
-
 			var position = room.GetNode<Marker2D>("SaveSpawn");
 			player.GlobalPosition = position.Position;
 
 			if (saveData.DoubleJumpUnlocked)
-				player.UnlockFloatJump();
+			{
 
-			AddChild(player);
+				player.UnlockFloatJump();
+			}
 		}
 		else
 		{
 			var room = defaultRoomScene.Instantiate<Node2D>();
 			AddChild(room);
 
-			var player = playerScene.Instantiate<Player>();
-
 			player.GlobalPosition = new Vector2(0, 350); // Ajusta según el nivel
-			AddChild(player);
 		}
+
+		AddChild(player);
 	}
 }

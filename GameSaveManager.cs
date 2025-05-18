@@ -4,7 +4,12 @@ using System.Text.Json;
 public partial class GameSaveManager : Node
 {
 	private const string SavePath = "user://savegame.json";
+	public SaveData RuntimeData { get; private set; }
 
+	public override void _Ready()
+	{
+		RuntimeData = LoadGame() ?? new SaveData();
+	}
 	public class SaveData
 	{
 		public Vector2 PlayerPosition { get; set; }
@@ -28,4 +33,5 @@ public partial class GameSaveManager : Node
 		string json = file.GetAsText();
 		return JsonSerializer.Deserialize<SaveData>(json);
 	}
+
 }

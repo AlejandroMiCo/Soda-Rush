@@ -63,6 +63,7 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
 ## 📝 Errores
 
 - [ ] Se ha encontrado un error en relacionado con los saltos, de vez en cuando el impulso del salto del personaje se dispara.
+      **\*Corrección**: parece haberse corregido cuando el codigo del player fue reestructurado.\*
 - [x] Se encontro un problema con las texturas anteriores por el cual no se podía configurar de forma adeucada el sistema de auto tiles.
 
 **\*Corrección** : Se ha optado por usar unos tails que si fueran compatibles haciendo mas agil el desarrollo de los mapas.\*
@@ -73,8 +74,10 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
 
 **\*Corrección** : Tras mucho investigar y mucha prueba y error se ha llegado a una solución que pese a no ser la mas elegante es práctica y tampoco es demasido engorrosa ni complicada para la gestión entre el cambío de habitaciones.\*
 
-- [ ] Problemas a la hora de establecer en que punto de guardado debe reaparecer el personaje al abrir el juego otra vez.
-- [ ] Al cargar las escena del desbloqueable, aunque se haya obtenido el objeto este se vuelve a cargar.
+- [x] Problemas a la hora de establecer en que punto de guardado debe reaparecer el personaje al abrir el juego otra vez.
+      **\*Corrección**: Se guarda el ID del punto de guardado en la clase SaveData.\*
+- [x] Al cargar las escena del desbloqueable, aunque se haya obtenido el objeto este se vuelve a cargar.
+      **\*Corrección**: Se comprueba si el Player ya ha obtenido el doble salto y en dicho caso se libera el objeto.\*
 - [x] La consola lanza un error de que ya estaba instanciado el nodo player en el arbol de nodos.
       **\*Corrección**: Se exporta la variable del nodo player para que no haya problemas .\*  
 

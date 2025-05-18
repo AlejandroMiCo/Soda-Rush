@@ -37,7 +37,7 @@ position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_cc1m5")
 debug_color = Color(0.911609, 0.212418, 0.519653, 0.42)
 
-[node name="SavePoint" type="Area2D" parent="."]
+[node name="SavePoint" type="Area2D" parent="." groups=["Save"]]
 position = Vector2(429, 376)
 script = ExtResource("4_xromp")
 

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://48g8f0p1ruf3" path="res://Assets/Sprites/Map/Save.png" id="5_frg88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgg4d"]
-size = Vector2(804.5, 215)
+size = Vector2(804.5, 330.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3lnv"]
 
@@ -33,15 +33,14 @@ position = Vector2(799, 279)
 position = Vector2(766, 369)
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
-position = Vector2(404, 287)
+position = Vector2(405, 229)
 script = ExtResource("3_lkudy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xgg4d")
 debug_color = Color(0.637118, 0.52599, 0.0285687, 0.42)
 
-[node name="SavePoint2" type="Area2D" parent="."]
+[node name="SavePoint2" type="Area2D" parent="." groups=["Save"]]
 position = Vector2(378, 358)
 script = ExtResource("4_nmdmn")
 id = "save_02"
