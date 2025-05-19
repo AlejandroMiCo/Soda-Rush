@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=4 uid="uid://cruaj34t8jp84"]
+[gd_scene load_steps=9 format=4 uid="uid://cruaj34t8jp84"]
 
 [ext_resource type="TileSet" uid="uid://bpjtkouwwp0db" path="res://Assets/TileSets/TileSet001.tres" id="1_5k6ox"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="2_6bcgx"]
 [ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="3_c5ote"]
+[ext_resource type="Script" uid="uid://b42yry1kvwx41" path="res://Assets/Scripts/PathFollow2d.cs" id="4_quntf"]
+[ext_resource type="PackedScene" uid="uid://dcw03kfitq4n3" path="res://Scenes/Enemigos/zombie.tscn" id="5_8n0tb"]
+[ext_resource type="PackedScene" uid="uid://db6g4ghighsmd" path="res://Scenes/Enemigos/Skeleton.tscn" id="6_u247r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an7js"]
 size = Vector2(1023, 394)
+
+[sub_resource type="Curve2D" id="Curve2D_c8aep"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 59.4595, 64.865, 0, 0, 0, 0, -1043.24, 64.8649)
+}
+point_count = 2
 
 [node name="Escena-006" type="Node2D"]
 
@@ -32,6 +41,7 @@ spawnMarker = "Spawn-Izq"
 position = Vector2(969, 202)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(495, 36)
 script = ExtResource("3_c5ote")
 
@@ -39,5 +49,78 @@ script = ExtResource("3_c5ote")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_an7js")
 debug_color = Color(0.3012, 0.62789, 0.0272027, 0.42)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(817, 8)
+scale = Vector2(0.185, 0.185)
+curve = SubResource("Curve2D_c8aep")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(59.4595, 64.865)
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("4_quntf")
+
+[node name="CharacterBody2D" parent="Path2D/PathFollow2D" instance=ExtResource("5_8n0tb")]
+position = Vector2(-43.2432, -86.4867)
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(551, 7)
+scale = Vector2(0.185, 0.185)
+curve = SubResource("Curve2D_c8aep")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(59.4595, 64.865)
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("4_quntf")
+
+[node name="CharacterBody2D" parent="Path2D2/PathFollow2D" instance=ExtResource("5_8n0tb")]
+position = Vector2(-43.2432, -86.4867)
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2(304, 8)
+scale = Vector2(0.185, 0.185)
+curve = SubResource("Curve2D_c8aep")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(59.4595, 64.865)
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("4_quntf")
+
+[node name="CharacterBody2D" parent="Path2D3/PathFollow2D" instance=ExtResource("5_8n0tb")]
+position = Vector2(-43.2432, -86.4867)
+
+[node name="Path2D4" type="Path2D" parent="."]
+position = Vector2(894, 172)
+scale = Vector2(0.185, 0.185)
+curve = SubResource("Curve2D_c8aep")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(59.4595, 64.865)
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("4_quntf")
+
+[node name="Skeleton" parent="Path2D4/PathFollow2D" instance=ExtResource("6_u247r")]
+
+[node name="Path2D5" type="Path2D" parent="."]
+position = Vector2(469, 171)
+scale = Vector2(0.185, 0.185)
+curve = SubResource("Curve2D_c8aep")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
+position = Vector2(59.4595, 64.865)
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("4_quntf")
+
+[node name="Skeleton" parent="Path2D5/PathFollow2D" instance=ExtResource("6_u247r")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]

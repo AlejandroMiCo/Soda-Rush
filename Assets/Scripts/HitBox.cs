@@ -8,7 +8,6 @@ public partial class HitBox : Area2D
 
     public void ActivateHitbox()
     {
-        System.Console.WriteLine("Hitbox activado");
         foreach (Node2D body in GetOverlappingBodies())
         {
 
@@ -16,7 +15,6 @@ public partial class HitBox : Area2D
 
             if (x is HurtBox hurtbox && hurtbox.Owner != owner)
             {
-                System.Console.WriteLine("patata2");
                 hurtbox.ReceiveDamage(damage);
             }
         }

@@ -3,22 +3,22 @@ using System;
 
 public partial class UnlockJump : Area2D
 {
-
+	[Export] private AudioStreamPlayer sound;
 	public override void _Ready()
 	{
 		var saveManager = GetTree().Root.GetNode<GameSaveManager>("World/GameSaveManager");
-
 		if (saveManager.RuntimeData.DoubleJumpUnlocked)
 		{
-			QueueFree(); // Ya lo recogió en esta sesión
+			QueueFree();
 		}
 	}
-	public void OnBodyEntered(Node2D body)
+	public void OnBodyEnteredPowerUp(Node2D body)
 	{
+		sound.Play();
 		if (body is Player player)
 		{
-			player.UnlockFloatJump();
 
+			player.UnlockFloatJump();
 			QueueFree();
 			var saveManager = GetTree().Root.GetNode<GameSaveManager>("World/GameSaveManager");
 			saveManager.RuntimeData.DoubleJumpUnlocked = true;

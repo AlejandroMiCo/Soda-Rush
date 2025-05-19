@@ -21,12 +21,16 @@ public partial class Player : CharacterBody2D
 
 	private Vector2 savedPosition;
 	private bool savedDoubleJumpUnlock;
+	private AudioStreamPlayer jumpSound;
+	private AudioStreamPlayer attackSound;
 
 	// Se ejecuta cuando el nodo se carga en la escena
 	public override void _Ready()
 	{
 		base._Ready();
 		stm = (AnimationNodeStateMachinePlayback)aTree.Get("parameters/playback");
+		jumpSound = GetNode<AudioStreamPlayer>("SonidoSalto");
+		attackSound = GetNode<AudioStreamPlayer>("SonidoGolpe");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -44,11 +48,17 @@ public partial class Player : CharacterBody2D
 		if (Input.IsActionJustPressed("attack"))
 		{
 			stm.Travel("Attack");
+			if (stm.GetCurrentNode() != "Attack")
+			{
+				// Reproducir el sonido de ataque
+				attackSound.Play();
+			}
 			return;
 		}
 
 		if (onFloor && Input.IsActionJustPressed("jump"))
 		{
+			jumpSound.Play();
 			velocity.Y = -jumpForce * 8F;
 			stm.Travel("jump");
 		}
@@ -123,8 +133,7 @@ public partial class Player : CharacterBody2D
 
 	public void TakeDamage(int amount)
 	{
-		// Resta vida, juega animaciones, etc.
-		GD.Print($"Jugador recibió {amount} de daño.");
+		//No se llego a implementar por falta de tiempo
 	}
 
 	public void floatJump()
@@ -143,9 +152,8 @@ public partial class Player : CharacterBody2D
 	{
 		return new GameSaveManager.SaveData
 		{
-			PlayerPosition = this.GlobalPosition, // Posición del jugador
-			CurrentRoom = "Escena-04", // Nombre de la habitación actual (esto puede ser dinámico)
-			DoubleJumpUnlocked = this.isFloatingJumpUnlock, // Estado del doble salto
+			PlayerPosition = GlobalPosition, // Posición del jugador
+			DoubleJumpUnlocked = isFloatingJumpUnlock, // Estado del doble salto
 		};
 	}
 
@@ -159,14 +167,10 @@ public partial class Player : CharacterBody2D
 		if (saveData != null)
 		{
 			// Restaurar la posición del jugador desde el guardado
-			this.GlobalPosition = saveData.PlayerPosition;
+			GlobalPosition = saveData.PlayerPosition;
 
 			// Restaurar las habilidades desbloqueadas
-			this.isFloatingJumpUnlock = saveData.DoubleJumpUnlocked;
-		}
-		else
-		{
-			GD.Print("No se encontró un guardado previo.");
+			isFloatingJumpUnlock = saveData.DoubleJumpUnlocked;
 		}
 	}
 }

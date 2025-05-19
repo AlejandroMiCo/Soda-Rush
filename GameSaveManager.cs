@@ -23,7 +23,6 @@ public partial class GameSaveManager : Node
 		string json = JsonSerializer.Serialize(data);
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
 		file.StoreString(json);
-		GD.Print("Juego guardado.");
 	}
 
 	public SaveData LoadGame()

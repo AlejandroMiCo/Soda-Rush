@@ -7,46 +7,47 @@ public partial class PathFollow2d : PathFollow2D
 	[Export] public float speed = 0.1f;
 	public bool isMoonWalking = false;
 	public bool isSkeleton = false;
-
-	public Skeleton skeleton;
+	public Enemy enemy;
 
 	public override void _Ready()
 	{
 		base._Ready();
-		skeleton = GetChild(0) as Skeleton;
-		
-		isSkeleton = skeleton != null;
+		enemy = GetChild(0) as Enemy;
+		isSkeleton = enemy.GetType() == typeof(Skeleton);
 	}
 
 	public override void _Process(double delta)
 	{
-
-		if (isMoonWalking)
+		if (enemy != null && IsInstanceValid(enemy))
 		{
-			ProgressRatio -= speed * (float)(delta);
-			if (isSkeleton)
+			if (isMoonWalking)
 			{
-				skeleton.sprite.FlipH = true;
-			}
+				ProgressRatio -= speed * (float)delta;
+				if (isSkeleton)
+				{
+					((Skeleton)enemy).sprite.FlipH = true;
+				}
 
-			if (ProgressRatio <= 0)
-			{
-				isMoonWalking = false;
+				if (ProgressRatio <= 0)
+				{
+					isMoonWalking = false;
+				}
 			}
+			else
+			{
+
+				ProgressRatio += speed * (float)delta;
+
+				if (isSkeleton)
+				{
+					((Skeleton)enemy).sprite.FlipH = false;
+				}
+
+				if (ProgressRatio >= 1)
+				{
+					isMoonWalking = true;
+				}
+			}	
 		}
-		else
-		{
-			ProgressRatio += speed * (float)(delta);
-
-			if (isSkeleton){
-				skeleton.sprite.FlipH = false;
-			}
-
-			if (ProgressRatio >= 1)
-			{
-				isMoonWalking = true;
-			}
-		}
-
 	}
 }

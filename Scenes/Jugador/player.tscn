@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://n1mutygal3tk"]
+[gd_scene load_steps=32 format=3 uid="uid://n1mutygal3tk"]
 
 [ext_resource type="Script" uid="uid://b6d58asx2pqxe" path="res://Assets/Scripts/Player.cs" id="1_6pwta"]
 [ext_resource type="Texture2D" uid="uid://bhoothpbd08hj" path="res://Assets/Sprites/Characters/idle 1-Sheet.png" id="3_6pwta"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://tds6gtex1h8f" path="res://Assets/Sprites/Characters/JUMP-Sheet.png" id="5_6pwta"]
 [ext_resource type="Script" uid="uid://ch1wc34lxgc2b" path="res://Assets/Scripts/HitBox.cs" id="6_bc0gx"]
 [ext_resource type="Script" uid="uid://dlyqfm7stplsw" path="res://Assets/Scripts/HurtBox.cs" id="7_olt7i"]
+[ext_resource type="AudioStream" uid="uid://jqgaiotw42l2" path="res://Assets/Sounds/Retro Jump Classic 08.wav" id="8_fkc27"]
+[ext_resource type="AudioStream" uid="uid://b3cqn7sjbhoej" path="res://Assets/Sounds/Retro Swooosh 07.wav" id="9_del22"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6pwta"]
 
@@ -397,6 +399,7 @@ size = Vector2(20.2656, 20)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ostq"]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("aTree", "sprite", "attackArea") groups=["Player"]]
+z_index = 10
 collision_mask = 31
 platform_floor_layers = 4278190084
 platform_wall_layers = 4
@@ -451,3 +454,9 @@ Owner = NodePath("..")
 scale = Vector2(1.12, 1.44)
 shape = SubResource("CapsuleShape2D_0ostq")
 debug_color = Color(0.641418, 0.336491, 1, 0.42)
+
+[node name="SonidoSalto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fkc27")
+
+[node name="SonidoGolpe" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_del22")

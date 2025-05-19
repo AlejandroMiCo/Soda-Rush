@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Zombie : CharacterBody2D
+public partial class Zombie : Enemy
 {
 
     private Vector2 velocity;
@@ -19,13 +19,9 @@ public partial class Zombie : CharacterBody2D
 
     public void TakeDamage(int amount)
     {
-        // Resta vida, juega animaciones, etc.
-		GD.Print($"Skeleton recibió {amount} de daño.");
-
 		health -= amount;
 		if (health <= 0)
 		{
-			GD.Print("Skeleton muerto");
 			QueueFree();
 		}
     }

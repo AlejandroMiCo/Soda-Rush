@@ -1,15 +1,22 @@
-[gd_scene load_steps=8 format=4 uid="uid://bhh8p4fsg28aq"]
+[gd_scene load_steps=11 format=4 uid="uid://bhh8p4fsg28aq"]
 
 [ext_resource type="TileSet" uid="uid://bpjtkouwwp0db" path="res://Assets/TileSets/TileSet001.tres" id="1_w6v2x"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="2_xgg4d"]
 [ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="3_lkudy"]
 [ext_resource type="Script" uid="uid://4qsae373ihh" path="res://Scenes/Niveles/SavePoint.cs" id="4_nmdmn"]
 [ext_resource type="Texture2D" uid="uid://48g8f0p1ruf3" path="res://Assets/Sprites/Map/Save.png" id="5_frg88"]
+[ext_resource type="AudioStream" uid="uid://y6mjhtr1p5l0" path="res://Assets/Sounds/Retro PowerUP StereoUP 05.wav" id="6_frg88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgg4d"]
 size = Vector2(804.5, 330.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3lnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmdmn"]
+size = Vector2(17, 315)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frg88"]
+size = Vector2(810.5, 72)
 
 [node name="Escena-007" type="Node2D"]
 
@@ -18,16 +25,14 @@ tile_map_data = PackedByteArray("AAABABUAAQACAAAAAAACABUAAQACAAAAAAADABUAAQACAAA
 tile_set = ExtResource("1_w6v2x")
 
 [node name="Puerta-Izq" parent="." instance=ExtResource("2_xgg4d")]
-position = Vector2(12, 281)
+position = Vector2(13, 258)
+scale = Vector2(1, 1.185)
 targetRoomScenePath = "uid://cruaj34t8jp84"
 deletedRoom = "Escena-007"
 spawnMarker = "Spawn-Abj"
 
 [node name="Spawn-Izq" type="Marker2D" parent="."]
 position = Vector2(49, 369)
-
-[node name="Puerta-Drc" parent="." instance=ExtResource("2_xgg4d")]
-position = Vector2(799, 279)
 
 [node name="Spawn-Drc" type="Marker2D" parent="."]
 position = Vector2(766, 369)
@@ -40,22 +45,42 @@ script = ExtResource("3_lkudy")
 shape = SubResource("RectangleShape2D_xgg4d")
 debug_color = Color(0.637118, 0.52599, 0.0285687, 0.42)
 
-[node name="SavePoint2" type="Area2D" parent="." groups=["Save"]]
+[node name="SavePoint" type="Area2D" parent="." node_paths=PackedStringArray("sonido") groups=["Save"]]
 position = Vector2(378, 358)
 script = ExtResource("4_nmdmn")
-id = "save_02"
+currentRoom = "Escena-007"
+sonido = NodePath("../Sonido")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoint2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SavePoint"]
 light_mask = 16
 scale = Vector2(2.99932, 2.93595)
 shape = SubResource("CircleShape2D_v3lnv")
 debug_color = Color(0.926315, 0.103778, 0.616346, 0.42)
 
-[node name="Sprite2D" type="Sprite2D" parent="SavePoint2"]
+[node name="Sprite2D" type="Sprite2D" parent="SavePoint"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_frg88")
 
 [node name="SaveSpawn" type="Marker2D" parent="."]
 position = Vector2(339, 372)
+
+[node name="Area2D2" type="Area2D" parent="."]
+light_mask = 4
+position = Vector2(800, 223)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+light_mask = 4
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_nmdmn")
+
+[node name="Area2D3" type="Area2D" parent="."]
+light_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(403.75, 99)
+shape = SubResource("RectangleShape2D_frg88")
+
+[node name="Sonido" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_frg88")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]

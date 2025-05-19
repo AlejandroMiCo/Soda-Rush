@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://dehos0wf22wox"]
+[gd_scene load_steps=11 format=4 uid="uid://dehos0wf22wox"]
 
 [ext_resource type="Texture2D" uid="uid://du2jkw5pkrc7t" path="res://Assets/Sprites/Map/001-tilemap.png" id="2_j0djn"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="3_kf5xg"]
 [ext_resource type="Script" uid="uid://b42yry1kvwx41" path="res://Assets/Scripts/PathFollow2d.cs" id="3_qt8ot"]
 [ext_resource type="PackedScene" uid="uid://dcw03kfitq4n3" path="res://Scenes/Enemigos/zombie.tscn" id="4_j0djn"]
-[ext_resource type="PackedScene" uid="uid://db6g4ghighsmd" path="res://Scenes/Enemigos/Skeleton.tscn" id="4_qt8ot"]
 [ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="5_3j2oy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sd2h"]
@@ -278,12 +277,6 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.671496, 0.0243492, 0.485278, 1)
 sources/1 = SubResource("TileSetAtlasSource_0sd2h")
 
-[sub_resource type="Curve2D" id="Curve2D_5ee7t"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 37.8379, 18.3782, 0, 0, 0, 0, -978.378, 18.3782)
-}
-point_count = 2
-
 [sub_resource type="Curve2D" id="Curve2D_j0djn"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 59.4595, 64.865, 0, 0, 0, 0, -2102.7, 59.4595)
@@ -311,22 +304,6 @@ position = Vector2(1617, 296)
 targetRoomScenePath = "uid://dm5hfw00ejgp"
 deletedRoom = "Escena-001"
 spawnMarker = "Spawn-Izq"
-
-[node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(532, 402)
-scale = Vector2(0.185, 0.154166)
-curve = SubResource("Curve2D_5ee7t")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(37.8379, 18.3782)
-rotation = 3.14159
-rotates = false
-cubic_interp = false
-loop = false
-script = ExtResource("3_qt8ot")
-
-[node name="Skeleton" parent="Path2D2/PathFollow2D" groups=["Enemies"] instance=ExtResource("4_qt8ot")]
-rotation = -3.14159
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(971, 389)

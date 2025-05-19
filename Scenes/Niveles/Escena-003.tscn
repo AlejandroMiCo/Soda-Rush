@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://db33htartmmtr"]
+[gd_scene load_steps=9 format=4 uid="uid://db33htartmmtr"]
 
 [ext_resource type="TileSet" uid="uid://bpjtkouwwp0db" path="res://Assets/TileSets/TileSet001.tres" id="1_7ybnt"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="2_lff3m"]
 [ext_resource type="Script" uid="uid://jgj05gshhl2w" path="res://Scenes/Niveles/Area2d.cs" id="3_yrn80"]
 [ext_resource type="Script" uid="uid://bbg5fw836glbw" path="res://Scenes/Niveles/UnlockJump.cs" id="4_8w4jd"]
 [ext_resource type="Texture2D" uid="uid://c6c6g6dnh65yk" path="res://Assets/Sprites/Map/water bottle.png" id="5_6wlk2"]
+[ext_resource type="AudioStream" uid="uid://y6mjhtr1p5l0" path="res://Assets/Sounds/Retro PowerUP StereoUP 05.wav" id="6_yjoy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4jd"]
 size = Vector2(645, 446)
@@ -37,17 +38,21 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_8w4jd")
 debug_color = Color(0.682262, 0.338804, 0.929297, 0.42)
 
-[node name="RigidBody2D" type="Area2D" parent="."]
+[node name="UnlockJump" type="Area2D" parent="." node_paths=PackedStringArray("sound")]
 position = Vector2(600, 146)
 collision_layer = 16
 script = ExtResource("4_8w4jd")
+sound = NodePath("../Sonido")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnlockJump"]
 shape = SubResource("CircleShape2D_6wlk2")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="UnlockJump"]
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("5_6wlk2")
 
+[node name="Sonido" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yjoy4")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]
-[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="UnlockJump" to="UnlockJump" method="OnBodyEnteredPowerUp"]

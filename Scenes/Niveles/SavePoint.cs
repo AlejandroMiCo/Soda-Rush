@@ -3,9 +3,11 @@ using System;
 
 public partial class SavePoint : Area2D
 {
-	[Export] public string id; // ID único del punto de guardado
+	[Export] public string currentRoom; // ID único del punto de guardado
 	private bool canSave = false;
 	private Player player;
+	[Export] private AudioStreamPlayer sonido;
+
 
 	public void SetPlayer(Player p)
 	{
@@ -40,21 +42,18 @@ public partial class SavePoint : Area2D
 		{
 			player = GetTree().Root.FindChild("Player", true, false) as Player;
 			if (player == null)
-				return; // No hay player aún, salir
+				return;
 		}
 
 		if (canSave && Input.IsActionJustPressed("interact"))
 		{
-
+			sonido.Play();
 			var saveManager = GetTree().Root.GetNode<GameSaveManager>("/root/World/GameSaveManager");
 
 			var data = player.GetCurrentState(); // Obtener estado actual del jugador
-			data.LastSavePointId = id; // Agregar ID del punto de guardado
+			data.CurrentRoom = currentRoom; // Agregar ID del punto de guardado
 
 			saveManager.SaveGame(data);
-
-			GD.Print($"Guardado realizado en punto: {id}");
-			// Aquí podrías agregar animación, sonido, etc.
 		}
 	}
 }

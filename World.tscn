@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://iofgb37le8jd"]
+[gd_scene load_steps=11 format=3 uid="uid://iofgb37le8jd"]
 
 [ext_resource type="Texture2D" uid="uid://ocjsyodmqbjx" path="res://Assets/Sprites/Map/Background.png" id="1_bcbcq"]
 [ext_resource type="Script" uid="uid://bfjy3wotej0dg" path="res://World.cs" id="1_eu7l1"]
 [ext_resource type="PackedScene" uid="uid://n1mutygal3tk" path="res://Scenes/Jugador/player.tscn" id="2_2dftf"]
 [ext_resource type="PackedScene" uid="uid://dehos0wf22wox" path="res://Scenes/Niveles/Escena-001.tscn" id="2_eu7l1"]
 [ext_resource type="Script" uid="uid://c0alpdp2e5jaq" path="res://GameSaveManager.cs" id="4_js7pq"]
+[ext_resource type="AudioStream" uid="uid://kmjddu8u6o6b" path="res://Assets/Audio/05 - Battle 1.mp3" id="6_p1v5b"]
 
 [sub_resource type="Animation" id="Animation_js7pq"]
 length = 0.001
@@ -90,3 +91,9 @@ libraries = {
 
 [node name="GameSaveManager" type="Node" parent="."]
 script = ExtResource("4_js7pq")
+
+[node name="MusicaDeFondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p1v5b")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2wp28nx8tnmo"]
+[gd_scene load_steps=6 format=3 uid="uid://c2wp28nx8tnmo"]
 
 [ext_resource type="Script" uid="uid://bnllf3f3av1bc" path="res://MainMenu.cs" id="1_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://b8ahhocj22p7w" path="res://Assets/Sprites/SodaRushMainMenu.png" id="1_i26rj"]
 [ext_resource type="FontFile" uid="uid://bvpvc0h6y42kr" path="res://Assets/font/Oi-Regular.ttf" id="3_h7a2f"]
+[ext_resource type="AudioStream" uid="uid://of78ghbf7uym" path="res://Assets/Audio/07 - Port Town.mp3" id="4_qoqlk"]
 
 [sub_resource type="Theme" id="Theme_eiy7p"]
 
@@ -54,6 +55,12 @@ theme_override_colors/font_hover_color = Color(0.582852, 0.53971, 0.928499, 1)
 theme_override_colors/font_color = Color(0.341749, 0.251811, 0.693457, 1)
 theme_override_fonts/font = ExtResource("3_h7a2f")
 text = "Salir"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qoqlk")
+volume_db = -10.0
+autoplay = true
+parameters/looping = false
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="OnPlayButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="OnExitButtonPressed"]
