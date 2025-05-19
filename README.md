@@ -143,3 +143,4 @@ salto sostenido. Se han añadido sonidos para ser usados mas adelante.
 - Prop 1: _"Podrias generar un fondo para una pantalla de titulo de un videojuego? El juego se llama Soda Rush y me gustaria que el estilo fuera pixel art y hubiera algunas botellas de soda en el fondo"_
 - Prop 2: _"La ambientacion me la imagino algo asi como en una pradera/bosque, me gustaria que tuviera colores tipo arcade de unos 1920x1080 y me gustaria que el titulo fuera en el centro de la parte superior
 - Imagen:
+   <img src="https://github.com/user-attachments/assets/894779d2-ee00-413f-8cd9-d492990d5600" alt="ImagenMainMenu" />
