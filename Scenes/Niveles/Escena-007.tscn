@@ -12,11 +12,11 @@ size = Vector2(804.5, 330.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3lnv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmdmn"]
-size = Vector2(17, 315)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frg88"]
 size = Vector2(810.5, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmdmn"]
+size = Vector2(17, 315)
 
 [node name="Escena-007" type="Node2D"]
 
@@ -64,23 +64,21 @@ texture = ExtResource("5_frg88")
 [node name="SaveSpawn" type="Marker2D" parent="."]
 position = Vector2(339, 372)
 
-[node name="Area2D2" type="Area2D" parent="."]
-light_mask = 4
+[node name="Sonido" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_frg88")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(405, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("RectangleShape2D_frg88")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(800, 223)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 light_mask = 4
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_nmdmn")
-
-[node name="Area2D3" type="Area2D" parent="."]
-light_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(403.75, 99)
-shape = SubResource("RectangleShape2D_frg88")
-
-[node name="Sonido" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_frg88")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]
