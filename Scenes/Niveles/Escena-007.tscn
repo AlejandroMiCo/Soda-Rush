@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bhh8p4fsg28aq"]
+[gd_scene load_steps=10 format=4 uid="uid://bhh8p4fsg28aq"]
 
 [ext_resource type="TileSet" uid="uid://bpjtkouwwp0db" path="res://Assets/TileSets/TileSet001.tres" id="1_w6v2x"]
 [ext_resource type="PackedScene" uid="uid://byx7epuj0mq37" path="res://Scenes/Elementos/Puerta.tscn" id="2_xgg4d"]
@@ -11,9 +11,6 @@
 size = Vector2(804.5, 330.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3lnv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_frg88"]
-size = Vector2(810.5, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmdmn"]
 size = Vector2(17, 315)
@@ -66,12 +63,6 @@ position = Vector2(339, 372)
 
 [node name="Sonido" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_frg88")
-
-[node name="RigidBody2D2" type="RigidBody2D" parent="."]
-position = Vector2(405, 100)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
-shape = SubResource("RectangleShape2D_frg88")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(800, 223)
